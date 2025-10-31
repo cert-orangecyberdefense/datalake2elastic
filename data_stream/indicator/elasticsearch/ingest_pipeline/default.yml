@@ -1,0 +1,60 @@
+---
+description: Pipeline for converting Orange Cyberdefense Datalake STIX output to Elastic expected format for indicators
+processors:
+  - terminate:
+      description: When debug ON - Skip pipeline for debug messages
+      if: ctx.ti_orangecyberdefense_datalake.debug === true && ctx.event?.type != 'indicator'
+  - drop:
+      description: When debug OFF - Drop debug messages
+      if: ctx.event?.type != 'indicator'
+  - drop:
+      description: Drop non-indicator STIX objects
+      if: ctx.ti_orangecyberdefense_datalake.indicator.type != 'indicator'
+  - grok:
+      description: Extract STIX indicator type from pattern
+      field: ti_orangecyberdefense_datalake.indicator.pattern
+      patterns:
+        - '\[%{DATA:threat.indicator.type}:'
+  - drop:
+      description: Drops unsupported indicator types
+      if: '![''domain-name'', ''email-addr'', ''ipv4-addr'', ''ipv6-addr'', ''url''].contains(ctx.threat.indicator.type)'
+  - set:
+      field: threat.feed
+      value:
+        name: Orange Cyberdefense Datalake CTI
+        reference: https://datalake.cert.orangecyberdefense.com/
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.id
+      field: threat.indicator.id
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.name
+      field: threat.indicator.name
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.created
+      field: threat.indicator.first_seen
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.modified
+      field: threat.indicator.last_seen
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.name
+      field: threat.indicator.ip
+      if: ctx.threat.indicator.type == 'ipv4-addr' || ctx.threat.indicator.type == 'ipv6-addr'
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.name
+      field: threat.indicator.email.address
+      if: ctx.threat.indicator.type == 'email-addr'
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.name
+      field: threat.indicator.url.domain
+      if: ctx.threat.indicator.type == 'domain-name'
+  - uri_parts:
+      field: ti_orangecyberdefense_datalake.indicator.name
+      if: ctx.threat.indicator.type == 'url'
+      target_field: threat.indicator.url
+  - set:
+      copy_from: threat.indicator.url.original
+      field: threat.indicator.url.full
+      if: ctx.threat.indicator.type == 'url'
+  - script:
+      description: Set direct link to Datalake
+      source: "\n          def refs = ctx?.ti_orangecyberdefense_datalake?.indicator?.external_references;\n          if (refs != null && refs.size() > 0 && refs[0]?.url != null && refs[0].url.contains('/gui/threat/')) {\n            ctx.threat.indicator.reference = refs[0].url;\n          }\n        "

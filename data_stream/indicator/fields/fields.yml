@@ -1,0 +1,8 @@
+- name: ti_orangecyberdefense_datalake
+  type: group
+  description: All fields related to Datalake indicators.
+  fields:
+    - name: debug
+      type: boolean
+      description: >
+        Whether debug level messages are kept in the feed.
