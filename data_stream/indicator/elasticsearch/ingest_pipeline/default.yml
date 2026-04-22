@@ -57,4 +57,7 @@ processors:
       if: ctx.threat.indicator.type == 'url'
   - script:
       description: Set direct link to Datalake
-      source: "\n          def refs = ctx?.ti_orangecyberdefense_datalake?.indicator?.external_references;\n          if (refs != null && refs.size() > 0 && refs[0]?.url != null && refs[0].url.contains('/gui/threat/')) {\n            ctx.threat.indicator.reference = refs[0].url;\n          }\n        "
+      source: "def refs = ctx?.ti_orangecyberdefense_datalake?.indicator?.external_references;\nif (refs != null && refs.size() > 0 && refs[0]?.url != null && refs[0].url.contains('/gui/threat/')) {\n  ctx.threat.indicator.reference = refs[0].url;\n}"
+  - script:
+      description: Set x_datalake_score_max
+      source: "if (ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score != null && ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score.size() > 0) {\n  int score_max = 0;\n  for (v in ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score?.values()) {\n    if (v > score_max) {\n      score_max = v;\n    }\n  }\n  ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score_max = score_max;\n}"
