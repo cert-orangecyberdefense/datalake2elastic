@@ -1,0 +1,14 @@
+- name: ti_orangecyberdefense_datalake
+  type: group
+  description: All fields related to Datalake indicators.
+  fields:
+    - name: debug
+      type: boolean
+      description: >
+        Whether debug level messages should be conserved.
+- name: "ti_orangecyberdefense_datalake.indicator.created"
+  type: date
+- name: "ti_orangecyberdefense_datalake.indicator.modified"
+  type: date
+- name: "ti_orangecyberdefense_datalake.indicator.valid_from"
+  type: date
