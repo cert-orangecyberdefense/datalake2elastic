@@ -32,55 +32,11 @@
         "panelsJSON": [
             {
                 "embeddableConfig": {
-                    "enhancements": {
-                        "dynamicActions": {
-                            "events": []
-                        }
-                    },
-                    "imageConfig": {
-                        "altText": "Orange Cyberdefense brand logo",
-                        "backgroundColor": "#FFFFFF",
-                        "sizing": {
-                            "objectFit": "contain"
-                        },
-                        "src": {
-                            "fileId": "5b9ce499-875c-4521-8e77-b912f6146297",
-                            "type": "file"
-                        }
-                    }
-                },
-                "gridData": {
-                    "h": 4,
-                    "i": "fdb21c52-4f7a-468e-a55e-6842dcb06789",
-                    "w": 14,
-                    "x": 0,
-                    "y": 0
-                },
-                "panelIndex": "fdb21c52-4f7a-468e-a55e-6842dcb06789",
-                "type": "image"
-            },
-            {
-                "embeddableConfig": {
                     "attributes": {
                         "references": [
                             {
                                 "id": "logs-*",
                                 "name": "indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
-                                "type": "index-pattern"
-                            },
-                            {
-                                "id": "logs-*",
-                                "name": "397744d5-07bd-4a89-a1fd-ed06a4d383e5",
-                                "type": "index-pattern"
-                            },
-                            {
-                                "id": "logs-*",
-                                "name": "0c8ff206-f5fa-4651-ab90-06e9b6d05f0c",
-                                "type": "index-pattern"
-                            },
-                            {
-                                "id": "logs-*",
-                                "name": "cb6cdd2d-2979-4c45-a848-c7f616995404",
                                 "type": "index-pattern"
                             }
                         ],
@@ -88,6 +44,7 @@
                             "adHocDataViews": {},
                             "datasourceStates": {
                                 "formBased": {
+                                    "currentIndexPatternId": "logs-*",
                                     "layers": {
                                         "04044f6c-369a-48a0-a61f-90a65d9344ac": {
                                             "columnOrder": [
@@ -98,7 +55,7 @@
                                                     "customLabel": true,
                                                     "dataType": "number",
                                                     "isBucketed": false,
-                                                    "label": "Indicators on selected time range",
+                                                    "label": "Active Indicators (selected time range)",
                                                     "operationType": "count",
                                                     "params": {
                                                         "emptyAsNull": true
@@ -108,14 +65,23 @@
                                             },
                                             "ignoreGlobalFilters": false,
                                             "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
                                             "sampling": 1
                                         }
                                     }
                                 },
                                 "indexpattern": {
+                                    "currentIndexPatternId": "logs-*",
                                     "layers": {}
                                 },
                                 "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "logs-*",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-*"
+                                        }
+                                    ],
                                     "layers": {}
                                 }
                             },
@@ -198,7 +164,8 @@
                                 "metricAccessor": "0dbc9864-56d2-4f01-afe9-2e2947989586",
                                 "secondaryTrend": {
                                     "type": "none"
-                                }
+                                },
+                                "valueFontMode": "fit"
                             }
                         },
                         "title": "",
@@ -278,6 +245,7 @@
                             }
                         }
                     ],
+                    "hidePanelTitles": true,
                     "query": {
                         "language": "kuery",
                         "query": ""
@@ -288,12 +256,12 @@
                 },
                 "gridData": {
                     "h": 4,
-                    "i": "2c2b60b6-6723-4e0e-bf89-ce6c8ba3d985",
-                    "w": 10,
-                    "x": 14,
+                    "i": "4f777529-edce-4dd9-95cb-ad71260ceac3",
+                    "w": 7,
+                    "x": 17,
                     "y": 0
                 },
-                "panelIndex": "2c2b60b6-6723-4e0e-bf89-ce6c8ba3d985",
+                "panelIndex": "4f777529-edce-4dd9-95cb-ad71260ceac3",
                 "type": "lens"
             },
             {
@@ -592,12 +560,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "c69e4b77-5e29-4ebf-9a08-e920f03422e0",
+                    "i": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596",
                     "w": 8,
                     "x": 24,
                     "y": 0
                 },
-                "panelIndex": "c69e4b77-5e29-4ebf-9a08-e920f03422e0",
+                "panelIndex": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596",
                 "type": "lens"
             },
             {
@@ -897,12 +865,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "5a43a415-2d04-48c5-bed6-46812055b798",
+                    "i": "c2463203-d53d-4cdb-a399-7cd521e91ed8",
                     "w": 8,
                     "x": 32,
                     "y": 0
                 },
-                "panelIndex": "5a43a415-2d04-48c5-bed6-46812055b798",
+                "panelIndex": "c2463203-d53d-4cdb-a399-7cd521e91ed8",
                 "type": "lens"
             },
             {
@@ -1278,12 +1246,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "04beec76-f61f-47bd-8db1-7c559d1c40ad",
+                    "i": "34cc38db-42bb-4bd2-9988-d3fcd319217e",
                     "w": 8,
                     "x": 40,
                     "y": 0
                 },
-                "panelIndex": "04beec76-f61f-47bd-8db1-7c559d1c40ad",
+                "panelIndex": "34cc38db-42bb-4bd2-9988-d3fcd319217e",
                 "type": "lens"
             },
             {
@@ -1318,28 +1286,13 @@
                 },
                 "gridData": {
                     "h": 7,
-                    "i": "d8c4e68a-f293-464d-b9c1-35e896681092",
+                    "i": "c8b4b804-93d8-4440-9a09-392fa351796d",
                     "w": 24,
                     "x": 0,
                     "y": 4
                 },
-                "panelIndex": "d8c4e68a-f293-464d-b9c1-35e896681092",
+                "panelIndex": "c8b4b804-93d8-4440-9a09-392fa351796d",
                 "type": "visualization"
-            },
-            {
-                "embeddableConfig": {
-                    "savedObjectId": "f8e71f59-3e49-412b-8784-939955709e62"
-                },
-                "gridData": {
-                    "h": 15,
-                    "i": "56f1bdac-653b-4f70-9792-a6f13476ffc2",
-                    "w": 48,
-                    "x": 0,
-                    "y": 22
-                },
-                "panelIndex": "56f1bdac-653b-4f70-9792-a6f13476ffc2",
-                "panelRefName": "panel_56f1bdac-653b-4f70-9792-a6f13476ffc2",
-                "type": "search"
             },
             {
                 "embeddableConfig": {
@@ -1643,12 +1596,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "61bc43f8-adbd-4734-b586-621d18f22dbd",
+                    "i": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46",
                     "w": 24,
                     "x": 0,
                     "y": 11
                 },
-                "panelIndex": "61bc43f8-adbd-4734-b586-621d18f22dbd",
+                "panelIndex": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46",
                 "type": "lens"
             },
             {
@@ -1953,12 +1906,307 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "f8cad292-6cbc-4079-bad0-0279cede7072",
+                    "i": "5795aea3-8fba-4724-aef3-bab4a046216e",
                     "w": 24,
                     "x": 24,
                     "y": 11
                 },
-                "panelIndex": "f8cad292-6cbc-4079-bad0-0279cede7072",
+                "panelIndex": "5795aea3-8fba-4724-aef3-bab4a046216e",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "savedObjectId": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+                    "w": 48,
+                    "x": 0,
+                    "y": 22
+                },
+                "panelIndex": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+                "panelRefName": "panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+                "type": "search"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "hidePanelTitles": true,
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "params": {
+                            "fontSize": 12,
+                            "markdown": "![Orange Cyberdefense brand logo](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAj4AAABkBAMAAAB0licnAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAB5QTFRFAAAAAAAA/3kAAAAAAAAAAAAA//z5/3kA/6RR/3kA0gx5TwAAAAp0Uk5TAP7/O8WB/3z/AQvVuyoAAAUzSURBVHic7ZrPcrs2EMfxAIfeojF+gZx6xIN9hwm+m7F5hU6Pnd8j9NRjr33bsn8RxAbstCjJb78zyYCEZPTR7molO4pMJpPJZDKZTCaTyWQymUwmk8lkMplMJhPql3/u6O/Qb/Y59OP1jv4I/WafQ8ZnWsZnWsZnWsZnWsZnWsZnWsZnWsZnWov4xG3d5sFeMaiW8Dk60NuoZeLcdsknVM6N2V6dKz/01utpAZ/UuVuAnufTuO/EJ3ai86Dl03yQd/kfvPsamuezVz67Qcun+Wy+FR8yn7qC/4NxPs2nc6+sPd95+rNplk+HwWV5FFfjSf8In69CZwGfhgMP2NGAh/FBVRJ39qMARHzifuyxj6HI5b/ykfpGgQ1a6E1cFH158bHhfVhzfGJ1q45HFtd1DddpXZ+QzxWdD4sqvuzqyq4c2HVFJ+Ej9YcawlmdD1ucY7mhbItzieuNvGtdzfFJNSwDqYjvgA38gfORl1GSBCPsyl/ItjCml8RH6/eSK3AJ9VZqTwnVl9BpczMxXVVzfBIagqii2NENsuxqdjQWIEZDgRECnwquaKQZ8dF65TNocdKeKqfcJDENubWZ47MZRp09zSyE2ETzopd+KA5Hu8NxV/pA7tULHynJ1GTQaqC45rWy6fsPpjk+++EqtaHbbgA0qsuR4nf3WFYc0S54tFvwx93lSnz6+rjoWlyKcYusvSIJ+gD8VOjgrWjGeem6epBPim8bw7QnNMkJGg05UaJudSpy9swG+Xj1vH6NWpyxfMsGGsPHJDoXAR1sjk8z5INkiBKBiSI0CppkGRY22ZNjYID364nPqAWQRFdmB27bC1xyrAuYLj3Ih2YTQjDGGX6iTDlIiN9xxJa8Mvfric+oBfSUMJ+sz5MiKg4YgB70Lxr1hqPGlp/A9bzoBPRkxRO/4DKtJz6bYQvoCa0SN68naQhPHBbm6f+PHuWD9t+oEUXoFi8bXYFwXUO78vn49cpHVzefDy9rpwgdlxUwQC/gI2/Xtm1OVlPxOn6PDxLl8IQ4JvmcfT6yqO++CJ9Nnx86jhu7CN/4Y3z29/jgnsKBlX4JPhJtdacBuzDNk6Gc+exaknjL2L+0Xu1n3IL54L4MZqX7x09c1uciemh/CgbRvfxBEh+NzxtvjbnDp1+DhM+4RaqGAkmnUwMMqtnzDTXvhi46HA2u3P767p8FyXXDeYsXgSPpKB+s2u/4UFIQNjFkPXw+RqEkUnvCLasM7VDXvl3xqDH/0XrNf8YtsKjSTnMGHMN5STAtPl8VTikFh0j2FxSWOEpVtO/YckPOiv16yZ/9Ep9PI8XolHzgETh//musP1/fnc8LFbqXg5osx3Mtcr48OvBuSk+E3ghnzs558PZfjexrXwZ89njeg9uYFGckDr7/+vW3sX5/vfn9DoUQiJ0QOhK/XG/6vHpwvuHVM5/3LXRXd2rpUEA6CLx/n+ETe8MEiaOB/+iY5aHMO7dnsBVvR6We+UjJbhSf5cPKfmbK1an0muejZ1u8Am2cnrGW/fQmikr54FdCbjswFwDbaPthi1Q8TkCyAYU0nyV8Rr9PkP1nQvt22W4f4JlL5H/vQwfwjEPr9fuLcQte0hqnnSLhXdBFfgmf4e9bEn9G4+PFuxyPxKu9VX+jBajwEuaiDfwFzyI+A+3DHgivrAf5xHjgXK77jiH14O/rUm8h+yn0DJ/sZtX31DN8ynVfMaie4PMzmc+jfOJjyMOqALLfP0/L+JhMJpPJZDKZTCaTyWQymUwmk8lkMplMpm+kfwEmmPRxF785GQAAAABJRU5ErkJggg==)",
+                            "openLinksInNewTab": false
+                        },
+                        "title": "",
+                        "type": "markdown",
+                        "uiState": {}
+                    }
+                },
+                "gridData": {
+                    "h": 4,
+                    "i": "50a1b04c-ab7b-462d-91c0-a4b7eb935274",
+                    "w": 10,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "50a1b04c-ab7b-462d-91c0-a4b7eb935274",
+                "type": "visualization"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "04044f6c-369a-48a0-a61f-90a65d9344ac": {
+                                            "columnOrder": [
+                                                "1498a569-9aad-4f86-b3c7-ae5892f16dc4"
+                                            ],
+                                            "columns": {
+                                                "1498a569-9aad-4f86-b3c7-ae5892f16dc4": {
+                                                    "customLabel": true,
+                                                    "dataType": "date",
+                                                    "filter": {
+                                                        "language": "kuery",
+                                                        "query": "\"@timestamp\": *"
+                                                    },
+                                                    "isBucketed": false,
+                                                    "label": "Last import",
+                                                    "operationType": "last_value",
+                                                    "params": {
+                                                        "sortField": "@timestamp"
+                                                    },
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "logs-*",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-*"
+                                        }
+                                    ],
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.dataset",
+                                        "index": "5090774e-b750-4cec-b9a4-e14a2a11873a",
+                                        "key": "event.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "ti_orangecyberdefense_datalake.indicator"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.dataset": "ti_orangecyberdefense_datalake.indicator"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "event.type",
+                                        "index": "196cae96-b713-4a53-be48-f74d47eda595",
+                                        "key": "event.type",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "indicator"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "event.type": "indicator"
+                                        }
+                                    }
+                                },
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "labels.is_ioc_transform_source",
+                                        "index": "82ac05da-51cc-40e1-b721-400a84d92181",
+                                        "key": "labels.is_ioc_transform_source",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "false"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "labels.is_ioc_transform_source": "false"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "icon": "empty",
+                                "layerId": "04044f6c-369a-48a0-a61f-90a65d9344ac",
+                                "layerType": "data",
+                                "metricAccessor": "1498a569-9aad-4f86-b3c7-ae5892f16dc4",
+                                "secondaryTrend": {
+                                    "type": "none"
+                                },
+                                "valueFontMode": "fit",
+                                "valuesTextAlign": "right"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "filters": [
+                        {
+                            "$state": {
+                                "store": "appState"
+                            },
+                            "meta": {
+                                "alias": null,
+                                "disabled": false,
+                                "field": "event.dataset",
+                                "index": "5090774e-b750-4cec-b9a4-e14a2a11873a",
+                                "key": "event.dataset",
+                                "negate": false,
+                                "params": {
+                                    "query": "ti_orangecyberdefense_datalake.indicator"
+                                },
+                                "type": "phrase"
+                            },
+                            "query": {
+                                "match_phrase": {
+                                    "event.dataset": "ti_orangecyberdefense_datalake.indicator"
+                                }
+                            }
+                        },
+                        {
+                            "$state": {
+                                "store": "appState"
+                            },
+                            "meta": {
+                                "alias": null,
+                                "disabled": false,
+                                "field": "event.type",
+                                "index": "196cae96-b713-4a53-be48-f74d47eda595",
+                                "key": "event.type",
+                                "negate": false,
+                                "params": {
+                                    "query": "indicator"
+                                },
+                                "type": "phrase"
+                            },
+                            "query": {
+                                "match_phrase": {
+                                    "event.type": "indicator"
+                                }
+                            }
+                        },
+                        {
+                            "$state": {
+                                "store": "appState"
+                            },
+                            "meta": {
+                                "alias": null,
+                                "disabled": false,
+                                "field": "labels.is_ioc_transform_source",
+                                "index": "82ac05da-51cc-40e1-b721-400a84d92181",
+                                "key": "labels.is_ioc_transform_source",
+                                "negate": false,
+                                "params": {
+                                    "query": "false"
+                                },
+                                "type": "phrase"
+                            },
+                            "query": {
+                                "match_phrase": {
+                                    "labels.is_ioc_transform_source": "false"
+                                }
+                            }
+                        }
+                    ],
+                    "hidePanelTitles": true,
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "syncColors": false,
+                    "syncCursor": true,
+                    "syncTooltips": false
+                },
+                "gridData": {
+                    "h": 4,
+                    "i": "6fe3726f-852d-4188-9f38-bb1e33bf1788",
+                    "w": 7,
+                    "x": 10,
+                    "y": 0
+                },
+                "panelIndex": "6fe3726f-852d-4188-9f38-bb1e33bf1788",
                 "type": "lens"
             }
         ],
@@ -1967,158 +2215,193 @@
         "version": 3
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2026-04-23T12:51:27.794Z",
+    "created_at": "2026-04-24T11:05:23.782Z",
     "created_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0",
-    "id": "ti_orangecyberdefense_datalake-a1c40378-3247-45b7-ac65-1053178d5530",
+    "id": "ti_orangecyberdefense_datalake-afa0df7d-0973-4951-a952-ca83a4478330",
     "references": [
         {
             "id": "logs-*",
-            "name": "2c2b60b6-6723-4e0e-bf89-ce6c8ba3d985:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
+            "name": "4f777529-edce-4dd9-95cb-ad71260ceac3:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2c2b60b6-6723-4e0e-bf89-ce6c8ba3d985:397744d5-07bd-4a89-a1fd-ed06a4d383e5",
+            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2c2b60b6-6723-4e0e-bf89-ce6c8ba3d985:0c8ff206-f5fa-4651-ab90-06e9b6d05f0c",
+            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:e783a006-add4-4c44-b1fe-80e015cb0ae1",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2c2b60b6-6723-4e0e-bf89-ce6c8ba3d985:cb6cdd2d-2979-4c45-a848-c7f616995404",
+            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:10c133d7-9f05-40a2-af1b-bf361d4157b3",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c69e4b77-5e29-4ebf-9a08-e920f03422e0:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
+            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:0e1665d8-2ae6-42b6-acc3-b0b6ee159df7",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c69e4b77-5e29-4ebf-9a08-e920f03422e0:e783a006-add4-4c44-b1fe-80e015cb0ae1",
+            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c69e4b77-5e29-4ebf-9a08-e920f03422e0:10c133d7-9f05-40a2-af1b-bf361d4157b3",
+            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:4cfa44d8-7190-4019-89d8-8b1034a01b22",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c69e4b77-5e29-4ebf-9a08-e920f03422e0:0e1665d8-2ae6-42b6-acc3-b0b6ee159df7",
+            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:2a178b24-7135-49a1-a93f-dab80959ee41",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5a43a415-2d04-48c5-bed6-46812055b798:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
+            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:650d6262-6b1a-460d-ae07-bc627ecdb3d7",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5a43a415-2d04-48c5-bed6-46812055b798:4cfa44d8-7190-4019-89d8-8b1034a01b22",
+            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5a43a415-2d04-48c5-bed6-46812055b798:2a178b24-7135-49a1-a93f-dab80959ee41",
+            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:5830e1e7-1a54-4576-9644-d1c0f8806f55",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5a43a415-2d04-48c5-bed6-46812055b798:650d6262-6b1a-460d-ae07-bc627ecdb3d7",
+            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:2b8259f5-340a-4d09-a7d1-66e3a35eed47",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "04beec76-f61f-47bd-8db1-7c559d1c40ad:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
+            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:bd88a2c4-2842-498c-ae4f-79f44632b79e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "04beec76-f61f-47bd-8db1-7c559d1c40ad:5830e1e7-1a54-4576-9644-d1c0f8806f55",
+            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "04beec76-f61f-47bd-8db1-7c559d1c40ad:2b8259f5-340a-4d09-a7d1-66e3a35eed47",
+            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:be509f73-9d4d-4fbe-a3ae-d4d8ed339ceb",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "04beec76-f61f-47bd-8db1-7c559d1c40ad:bd88a2c4-2842-498c-ae4f-79f44632b79e",
+            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:1b012744-aee2-4cf2-a626-4ec89b673c5f",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "56f1bdac-653b-4f70-9792-a6f13476ffc2:kibanaSavedObjectMeta.searchSourceJSON.index",
+            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:50fcaf58-02f2-4a3b-ba83-58b1e92cc416",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "56f1bdac-653b-4f70-9792-a6f13476ffc2:kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "56f1bdac-653b-4f70-9792-a6f13476ffc2:kibanaSavedObjectMeta.searchSourceJSON.filter[1].meta.index",
+            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:a0208f88-84c2-4c19-b7dd-4435f6f96e2b",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "56f1bdac-653b-4f70-9792-a6f13476ffc2:kibanaSavedObjectMeta.searchSourceJSON.filter[2].meta.index",
+            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:c08f5e22-50c4-45d4-a988-882bd6aa87ab",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "56f1bdac-653b-4f70-9792-a6f13476ffc2:kibanaSavedObjectMeta.searchSourceJSON.filter[3].meta.index",
+            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:fa661e2d-19ca-43a1-9d10-79ab78a48aa6",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[1].meta.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[2].meta.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[3].meta.index",
             "type": "index-pattern"
         },
         {
             "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "56f1bdac-653b-4f70-9792-a6f13476ffc2:panel_56f1bdac-653b-4f70-9792-a6f13476ffc2",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_56f1bdac-653b-4f70-9792-a6f13476ffc2",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_56f1bdac-653b-4f70-9792-a6f13476ffc2",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
+            "type": "search"
+        },
+        {
+            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
+            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
             "type": "search"
         },
         {
             "id": "logs-*",
-            "name": "61bc43f8-adbd-4734-b586-621d18f22dbd:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "61bc43f8-adbd-4734-b586-621d18f22dbd:be509f73-9d4d-4fbe-a3ae-d4d8ed339ceb",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "61bc43f8-adbd-4734-b586-621d18f22dbd:1b012744-aee2-4cf2-a626-4ec89b673c5f",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "61bc43f8-adbd-4734-b586-621d18f22dbd:50fcaf58-02f2-4a3b-ba83-58b1e92cc416",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "f8cad292-6cbc-4079-bad0-0279cede7072:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "f8cad292-6cbc-4079-bad0-0279cede7072:a0208f88-84c2-4c19-b7dd-4435f6f96e2b",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "f8cad292-6cbc-4079-bad0-0279cede7072:c08f5e22-50c4-45d4-a988-882bd6aa87ab",
-            "type": "index-pattern"
-        },
-        {
-            "id": "logs-*",
-            "name": "f8cad292-6cbc-4079-bad0-0279cede7072:fa661e2d-19ca-43a1-9d10-79ab78a48aa6",
+            "name": "6fe3726f-852d-4188-9f38-bb1e33bf1788:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
             "type": "index-pattern"
         }
     ],
