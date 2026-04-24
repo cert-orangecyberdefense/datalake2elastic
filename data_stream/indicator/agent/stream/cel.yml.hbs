@@ -20,6 +20,8 @@ resource.rate_limit.limit: {{rate_limit}}
 resource.rate_limit.burst: {{rate_limit_burst}}
 {{/if}}
 resource.url: https://datalake.cert.orangecyberdefense.com/
+resource.headers:
+  User-Agent: "datalake2elastic/0.0.1"
 state:
   datalake_env: {{datalake_env}}
   datalake_token: {{datalake_token}}
