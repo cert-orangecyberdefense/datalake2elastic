@@ -15,9 +15,13 @@ conditions:
   elastic:
     subscription: "basic"
 screenshots:
-  - src: /img/sample-screenshot.png
-    title: Sample screenshot
-    size: 600x600
+  - src: /img/screenshot-dashboard1.png
+    title: Orange Cyberdefense Datalake CTI kibana dashboard - part 1
+    size: 1916x776
+    type: image/png
+  - src: /img/screenshot-dashboard2.png
+    title: Orange Cyberdefense Datalake CTI kibana dashboard - part 2
+    size: 1920x655
     type: image/png
 icons:
   - src: /img/orange-logo.svg
