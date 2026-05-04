@@ -60,13 +60,14 @@ policy_templates:
             multi: false
           - name: datalake_query_hash
             type: text
-            title: Datalake Query Hash
+            title: Datalake Query Hashes
             description: >-
-              Datalake query hash for indicators you want to import. First, you have to make a query that matches what you want to import on Datalake. Then, from the results page URL, you can get the query hash and paste it here.
+              Datalake query hashes for indicators you want to import. First, you have to make a query that matches what you want to import on Datalake. Then, from the results page URL, you can get the query hash and paste it here. You can add multiple query hashes to fetch indicators from several saved queries in a single policy.
             required: true
             show_user: true
-            multi: false
-            default: 442ef63d19e86aecbd3eca23acd239e8
+            multi: true
+            default:
+              - 442ef63d19e86aecbd3eca23acd239e8
 
 owner:
   github: cert-orangecyberdefense

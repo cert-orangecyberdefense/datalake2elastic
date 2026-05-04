@@ -23,15 +23,6 @@ streams:
         multi: false
         required: true
         show_user: true
-      - name: debug
-        type: bool
-        title: Include debug
-        description: >-
-          Disable or enable debug level messages.
-        multi: false
-        required: false
-        show_user: true
-        default: false
       - name: max_executions
         type: integer
         title: Maximum executions

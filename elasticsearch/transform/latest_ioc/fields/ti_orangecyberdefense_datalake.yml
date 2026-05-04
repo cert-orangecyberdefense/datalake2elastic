@@ -2,10 +2,10 @@
   type: group
   description: All fields related to Datalake indicators.
   fields:
-    - name: debug
-      type: boolean
+    - name: query_hash
+      type: keyword
       description: >
-        Whether debug level messages should be conserved.
+        The Datalake query hash that produced this indicator.
 - name: "ti_orangecyberdefense_datalake.indicator.created"
   type: date
 - name: "ti_orangecyberdefense_datalake.indicator.modified"

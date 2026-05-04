@@ -26,7 +26,6 @@ state:
   datalake_env: {{datalake_env}}
   datalake_token: {{datalake_token}}
   datalake_query_hash: {{datalake_query_hash}}
-  debug: {{debug}}
 redact:
   fields:
     - datalake_token
@@ -44,8 +43,7 @@ program: |
                 "https://ti2.extranet.mrti-center.com/api/v3/mrti/bulk-search/"
             ),
             "datalake_query_hash": state.datalake_query_hash,
-            "datalake_token": state.datalake_token,
-            "debug": state.debug
+            "datalake_token": state.datalake_token
           }
         }
       )
@@ -86,7 +84,7 @@ program: |
                 },
                 "message": "Step 1: Created bulk search query",
                 "ti_orangecyberdefense_datalake": {
-                  "debug": state.cursor.debug
+                  "query_hash": state.cursor.datalake_query_hash
                 }
               }
             ],
@@ -111,7 +109,7 @@ program: |
                   "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
               ),
               "ti_orangecyberdefense_datalake": {
-                "debug": state.cursor.debug
+                "query_hash": state.cursor.datalake_query_hash
               }
             }
           ],
@@ -145,7 +143,7 @@ program: |
               },
               "message": "Step 2: Wait for bulk search results",
               "ti_orangecyberdefense_datalake": {
-                "debug": state.cursor.debug
+                "query_hash": state.cursor.datalake_query_hash
               }
             }
           ],
@@ -169,7 +167,7 @@ program: |
                   "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
                 ),
                 "ti_orangecyberdefense_datalake": {
-                  "debug": state.cursor.debug
+                  "query_hash": state.cursor.datalake_query_hash
                 }
               }
             ],
@@ -187,7 +185,7 @@ program: |
                 },
                 "ti_orangecyberdefense_datalake": {
                   "indicator": obj,
-                  "debug": state.cursor.debug
+                  "query_hash": state.cursor.datalake_query_hash
                 }
               }),
               "want_more": false,
@@ -202,7 +200,7 @@ program: |
                   },
                   "message": "[DATA ERROR] Could not unzip the bulk search response",
                   "ti_orangecyberdefense_datalake": {
-                    "debug": state.cursor.debug
+                    "query_hash": state.cursor.datalake_query_hash
                   }
                 }
               ],
