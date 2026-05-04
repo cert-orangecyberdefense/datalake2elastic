@@ -198,7 +198,7 @@ program: |
                     "event": {
                       "kind": "state"
                     },
-                    "message": "Pushing bulk search results to ingest pipeline",
+                    "message": "Pushing bulk search results to ingest pipeline (" + string(size(body.objects)) + ")",
                     "ti_orangecyberdefense_datalake": {
                       "query_hash": state.cursor.datalake_query_hash
                     }
@@ -222,9 +222,9 @@ program: |
                 "events": [
                   {
                     "event": {
-                      "kind": "pipeline_error"
+                      "kind": "state"
                     },
-                    "message": "[DATA ERROR] Could not unzip the bulk search response",
+                    "message": "Pushing bulk search results to ingest pipeline (0)",
                     "ti_orangecyberdefense_datalake": {
                       "query_hash": state.cursor.datalake_query_hash
                     }
