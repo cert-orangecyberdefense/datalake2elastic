@@ -50,110 +50,68 @@ program: |
     :
       state
   ).as(state,
-    // IF FIRST ROUND: Create bulk search
+    // NEW CYCLE: Emit start message
     !state.?want_more.orValue(false) ?
-      request(
-        "POST",
-        state.cursor.datalake_url
-      )
-      .with(
-        {
-          "Header": {
-            "Content-Type": ["application/json"],
-            "Authorization": ["Token " + state.cursor.datalake_token]
-          }
-        }
-      )
-      .with(
-        {
-          "Body": {
-            "query_hash": state.cursor.datalake_query_hash,
-            "for_stix_export": true,
-            "indicators_only": true
-          }.encode_json()
-        }
-      )
-      .do_request()
-      .as(resp, resp.StatusCode == 200 ?
-        bytes(resp.Body).decode_json().as(body,
+      {
+        "events": [
           {
-            "events": [
-              {
-                "event": {
-                  "kind": "state"
-                },
-                "message": "Step 1: Created bulk search query",
-                "ti_orangecyberdefense_datalake": {
-                  "query_hash": state.cursor.datalake_query_hash
-                }
-              }
-            ],
-            "want_more": true,
-            "runtime_data": {
-              "task": body
+            "event": {
+              "kind": "state"
             },
-            "cursor": state.cursor
+            "message": "New cycle started"
           }
-        )
-      :
-        {
-          "events": [
-            {
-              "event": {
-                "kind": "pipeline_error"
-              },
-              "message": (
-                size(resp.Body) != 0 ?
-                  string(resp.Body)
-                :
-                  "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
-              ),
-              "ti_orangecyberdefense_datalake": {
-                "query_hash": state.cursor.datalake_query_hash
-              }
-            }
-          ],
-          "want_more": false,
-          "cursor": state.cursor
-        }
-      )
+        ],
+        "want_more": true,
+        "cursor": state.cursor
+      }
 
     :
-      // IF SUBSEQUENT ROUND: Check bulk search status
-      request(
-        "GET",
-        state.cursor.datalake_url + "task/" + state.runtime_data.task.task_uuid
-      )
-      .with(
-        {
-          "Header": {
-            "Authorization": ["Token " + state.cursor.datalake_token],
-            "Accept": ["text/x-stix-zip"]
-          }
-        }
-      )
-      .do_request()
-      .as(resp, resp.StatusCode == 202 ?
-        // IF BULK SEARCH PENDING: Retry later
-        {
-          "events": [
-            {
-              "event": {
-                "kind": "state"
-              },
-              "message": "Step 2: Wait for bulk search results",
-              "ti_orangecyberdefense_datalake": {
-                "query_hash": state.cursor.datalake_query_hash
-              }
+      // CREATE BULK SEARCH
+      !has(state.runtime_data) ?
+        request(
+          "POST",
+          state.cursor.datalake_url
+        )
+        .with(
+          {
+            "Header": {
+              "Content-Type": ["application/json"],
+              "Authorization": ["Token " + state.cursor.datalake_token]
             }
-          ],
-          "want_more": true,
-          "runtime_data": state.runtime_data,
-          "cursor": state.cursor
-        }
-      :
-        // IF BULK SEARCH FINISHED: Process the data
-        resp.StatusCode != 200 ?
+          }
+        )
+        .with(
+          {
+            "Body": {
+              "query_hash": state.cursor.datalake_query_hash,
+              "for_stix_export": true,
+              "indicators_only": true
+            }.encode_json()
+          }
+        )
+        .do_request()
+        .as(resp, resp.StatusCode == 200 ?
+          bytes(resp.Body).decode_json().as(body,
+            {
+              "events": [
+                {
+                  "event": {
+                    "kind": "state"
+                  },
+                  "message": "Bulk search query created",
+                  "ti_orangecyberdefense_datalake": {
+                    "query_hash": state.cursor.datalake_query_hash
+                  }
+                }
+              ],
+              "want_more": true,
+              "runtime_data": {
+                "task": body
+              },
+              "cursor": state.cursor
+            }
+          )
+        :
           {
             "events": [
               {
@@ -164,7 +122,7 @@ program: |
                   size(resp.Body) != 0 ?
                     string(resp.Body)
                   :
-                  "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+                    "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
                 ),
                 "ti_orangecyberdefense_datalake": {
                   "query_hash": state.cursor.datalake_query_hash
@@ -174,31 +132,56 @@ program: |
             "want_more": false,
             "cursor": state.cursor
           }
-        :
-          resp.Body.mime("application/zip").File.as(file, file.size() > 0 ?
-            file[0].Data.as(data, bytes(data).decode_json().as(body, {
-              "events": body.objects.map(obj, {
+        )
+
+      :
+        // CHECK BULK SEARCH STATUS
+        request(
+          "GET",
+          state.cursor.datalake_url + "task/" + state.runtime_data.task.task_uuid
+        )
+        .with(
+          {
+            "Header": {
+              "Authorization": ["Token " + state.cursor.datalake_token],
+              "Accept": ["text/x-stix-zip"]
+            }
+          }
+        )
+        .do_request()
+        .as(resp, resp.StatusCode == 202 ?
+          // IF BULK SEARCH PENDING: Retry later
+          {
+            "events": [
+              {
                 "event": {
-                  "kind": "enrichment",
-                  "category": "threat",
-                  "type": "indicator"
+                  "kind": "state"
                 },
+                "message": "Waiting for bulk search results",
                 "ti_orangecyberdefense_datalake": {
-                  "indicator": obj,
                   "query_hash": state.cursor.datalake_query_hash
                 }
-              }),
-              "want_more": false,
-              "cursor": state.cursor
-            }))
-          :
+              }
+            ],
+            "want_more": true,
+            "runtime_data": state.runtime_data,
+            "cursor": state.cursor
+          }
+        :
+          // IF BULK SEARCH FINISHED: Process the data
+          resp.StatusCode != 200 ?
             {
               "events": [
                 {
                   "event": {
                     "kind": "pipeline_error"
                   },
-                  "message": "[DATA ERROR] Could not unzip the bulk search response",
+                  "message": (
+                    size(resp.Body) != 0 ?
+                      string(resp.Body)
+                    :
+                    "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+                  ),
                   "ti_orangecyberdefense_datalake": {
                     "query_hash": state.cursor.datalake_query_hash
                   }
@@ -207,8 +190,51 @@ program: |
               "want_more": false,
               "cursor": state.cursor
             }
-          )
-      )
+          :
+            resp.Body.mime("application/zip").File.as(file, file.size() > 0 ?
+              file[0].Data.as(data, bytes(data).decode_json().as(body, {
+                "events": [
+                  {
+                    "event": {
+                      "kind": "state"
+                    },
+                    "message": "Pushing bulk search results to ingest pipeline",
+                    "ti_orangecyberdefense_datalake": {
+                      "query_hash": state.cursor.datalake_query_hash
+                    }
+                  }
+                ] + body.objects.map(obj, {
+                  "event": {
+                    "kind": "enrichment",
+                    "category": "threat",
+                    "type": "indicator"
+                  },
+                  "ti_orangecyberdefense_datalake": {
+                    "indicator": obj,
+                    "query_hash": state.cursor.datalake_query_hash
+                  }
+                }),
+                "want_more": false,
+                "cursor": state.cursor
+              }))
+            :
+              {
+                "events": [
+                  {
+                    "event": {
+                      "kind": "pipeline_error"
+                    },
+                    "message": "[DATA ERROR] Could not unzip the bulk search response",
+                    "ti_orangecyberdefense_datalake": {
+                      "query_hash": state.cursor.datalake_query_hash
+                    }
+                  }
+                ],
+                "want_more": false,
+                "cursor": state.cursor
+              }
+            )
+        )
   )
 
 fields_under_root: true
