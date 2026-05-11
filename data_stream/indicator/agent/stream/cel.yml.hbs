@@ -31,9 +31,11 @@ redact:
     - datalake_token
     - cursor.datalake_token
 program: |
-  // IF FIRST RUN: Fill persistent state.cursor
+  // Ensure cursor exists on first run, preserving template values in state
   (
-    !has(state.cursor) ?
+    has(state.cursor) ?
+      state
+    :
       state.with(
         {
           "cursor": {
@@ -47,10 +49,8 @@ program: |
           }
         }
       )
-    :
-      state
   ).as(state,
-    // NEW CYCLE: Initialize runtime_data
+    // NEW CYCLE: Initialize runtime_data and refresh config if available
     !state.?want_more.orValue(false) ?
       {
         "events": [
@@ -68,7 +68,18 @@ program: |
           "create_index": 0,
           "poll_index": 0
         },
-        "cursor": state.cursor
+        "cursor": has(state.datalake_env) ?
+          {
+            "datalake_url": (state.datalake_env == "prod" ?
+                "https://datalake.cert.orangecyberdefense.com/api/v3/mrti/bulk-search/"
+              :
+                "https://ti2.extranet.mrti-center.com/api/v3/mrti/bulk-search/"
+            ),
+            "datalake_query_hashes": string(state.datalake_query_hashes).split(","),
+            "datalake_token": state.datalake_token
+          }
+        :
+          state.cursor
       }
 
     :
