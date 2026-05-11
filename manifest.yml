@@ -58,7 +58,7 @@ policy_templates:
             show_user: true
             secret: true
             multi: false
-          - name: datalake_query_hash
+          - name: datalake_query_hashes
             type: text
             title: Datalake Query Hashes
             description: >-

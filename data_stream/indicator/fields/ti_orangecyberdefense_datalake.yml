@@ -6,6 +6,8 @@
       type: keyword
       description: >
         The Datalake query hash that produced this indicator.
+- name: "ti_orangecyberdefense_datalake.indicator.datalake_query_hash"
+  type: keyword
 - name: "ti_orangecyberdefense_datalake.indicator.created"
   type: date
 - name: "ti_orangecyberdefense_datalake.indicator.modified"
