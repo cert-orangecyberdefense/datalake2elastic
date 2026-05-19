@@ -55,3 +55,17 @@ processors:
   - script:
       description: Set x_datalake_score_max
       source: "if (ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score != null && ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score.size() > 0) {\n  int score_max = 0;\n  for (v in ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score?.values()) {\n    if (v > score_max) {\n      score_max = v;\n    }\n  }\n  ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score_max = score_max;\n}"
+on_failure:
+  - set:
+      field: event.kind
+      value: pipeline_error
+  - append:
+      field: tags
+      value: preserve_original_event
+      allow_duplicates: false
+  - append:
+      field: error.message
+      value: >-
+        Processor '{{{ _ingest.on_failure_processor_type }}}'
+        {{{#_ingest.on_failure_processor_tag}}}with tag '{{{ _ingest.on_failure_processor_tag }}}'
+        {{{/_ingest.on_failure_processor_tag}}}failed with message '{{{ _ingest.on_failure_message }}}'

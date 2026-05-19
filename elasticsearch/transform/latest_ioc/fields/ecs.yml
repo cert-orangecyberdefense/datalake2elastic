@@ -1,5 +1,7 @@
 - name: event.ingested
   external: ecs
+- name: event.original
+  external: ecs
 - name: threat.feed.description
   external: ecs
 - name: threat.feed.name

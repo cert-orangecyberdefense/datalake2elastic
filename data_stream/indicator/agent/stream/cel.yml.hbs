@@ -274,7 +274,8 @@ program: |
                         "event": {
                           "kind": "enrichment",
                           "category": "threat",
-                          "type": "indicator"
+                          "type": "indicator",
+                          "original": obj.encode_json()
                         },
                         "ti_orangecyberdefense_datalake": {
                           "indicator": obj,
