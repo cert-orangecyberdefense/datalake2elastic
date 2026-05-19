@@ -16,9 +16,9 @@ The integration uses a CEL input to periodically query the Datalake Bulk Search 
 2. **Polls the task** via `GET /api/v3/mrti/bulk-search/task/{uuid}` until results are ready or the task fails.
 3. **Extracts STIX indicators** from the returned ZIP archive and sends them through the ingest pipeline, which maps them to ECS `threat.indicator.*` fields.
 
-A `latest_ioc` transform deduplicates indicators so that only the most recent version of each is available for threat matching.
-
 Multiple query hashes can be configured in a single policy to fetch indicators from several saved Datalake queries at once.
+
+An [Elastic Transform](https://www.elastic.co/guide/en/elasticsearch/reference/current/transforms.html) is created to provide a view of active indicators for end users. This transform creates destination indices that are accessible via the alias `logs-ti_orangecyberdefense_datalake_latest.indicator`. When querying for active indicators or setting up indicator match rules, use that alias to avoid false positives from expired indicators.
 
 ## What data does this integration collect?
 
@@ -65,6 +65,8 @@ Elastic Agent is required to stream data from the Datalake API and ship it to El
 ### Onboard and configure
 
 Add the integration from the **Integrations** page in Kibana by searching for **Orange Cyberdefense Datalake**. You will need to provide your Datalake environment, long-term token, and one or more query hashes.
+
+Note: By default, the field `threat.indicator.reference` is not clickable in Kibana. You can change this behavior by setting "Url" for the format of this field in the relevant data view settings (`logs-*` for provided search and dashboard).
 
 ### Validation
 
