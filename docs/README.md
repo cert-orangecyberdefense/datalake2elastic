@@ -1,8 +1,8 @@
-# Orange Cyberdefense Integration for Elastic
+# Orange Cyberdefense Datalake Integration for Elastic
 
 ## Overview
 
-The Orange Cyberdefense integration for Elastic enables collection of Orange Cyberdefense solutions with Elastic Security.
+Powered by Orange Cyberdefense Datalake, this threat intelligence integration feeds the Elastic Security stack with curated indicators — IP addresses, domains, URLs, and email addresses — scored and enriched.
 
 ### Compatibility
 
@@ -22,7 +22,7 @@ Multiple query hashes can be configured in a single policy to fetch indicators f
 
 ## What data does this integration collect?
 
-The <no value> integration collects the following data:
+The Orange Cyberdefense Datalake integration collects the following data:
 
 * **Indicators** (`indicator` dataset) — Threat indicators in STIX format, converted to ECS-compatible fields. Supported indicator types:
 
@@ -42,24 +42,17 @@ Each indicator also includes Datalake-specific metadata under `ti_orangecyberdef
 ### Supported use cases
 
 - Automated indicator matching against your logs using Elastic's threat intelligence detection rules
-- Centralized dashboard for monitoring indicator volume, types, and threat scores
+- Threat hunting and alert enrichment with CTI context during investigations
+- Monitoring ingestion health and indicator coverage through the included dashboard
 
 ## What do I need to use this integration?
 
-1. **A Datalake account** with the `bulk_search` API permission.
-2. **A long-term API token** — generate one from the [My Account](https://datalake.cert.orangecyberdefense.com/gui/my-account) page.
-3. **One or more query hashes** — these identify saved searches in Datalake. To obtain a query hash:
-    1. Go to [Datalake](https://datalake.cert.orangecyberdefense.com/) and build a query matching the indicators you want to import.
-    2. Run the query.
-    3. Copy the query hash from the results page URL (e.g. `442ef63d19e86aecbd3eca23acd239e8`).
+- An **Elastic deployment** with a configured **Elastic Agent**.
+- A **Datalake account** with the `bulk_search` API permission.
+  - A **Datalake long-term API token** for this account — generate one from the [My Account](https://datalake.cert.orangecyberdefense.com/gui/my-account) page.
+- One or more **Datalake query hashes** — these identify saved searches in Datalake. To obtain a query hash, see the relevant section of the Datalake FAQ.
 
-    > **Note:** Make sure your Datalake query uses a time filter that aligns with the integration's polling interval. For example, if the integration polls every 15 minutes, your query should cover at least the last 15 minutes to avoid missing indicators.
-
-    | Requirement | Details |
-    | --- | --- |
-    | Datalake permission | `bulk_search` |
-    | Authentication | Long-term API token |
-    | Query hashes | At least one, from a saved Datalake search |
+> **Note:** Make sure your Datalake query uses a time filter that aligns with the integration's polling interval. For example, if the integration polls every 15 minutes, your query should cover at least the last 15 minutes to avoid missing indicators.
 
 ## How do I deploy this integration?
 
@@ -69,44 +62,23 @@ Elastic Agent must be installed. For more details, check the Elastic Agent [inst
 
 Elastic Agent is required to stream data from the Datalake API and ship it to Elastic, where events are processed via the integration's ingest pipelines.
 
-### Onboard / configure
+### Onboard and configure
 
-1. In the top search bar in Kibana, search for **Integrations**.
-2. In the search bar, type **Orange Cyberdefense**.
-3. Select the **Orange Cyberdefense Datalake** integration from the search results.
-4. Select **Add Orange Cyberdefense Datalake** to add the integration.
-5. Configure the following settings:
-
-    | Setting | Description |
-    | --- | --- |
-    | **Datalake Environment** | `prod` (default) or `preprod` |
-    | **Datalake Long Term Token** | Your API token from the My Account page |
-    | **Datalake Query Hashes** | One or more query hashes to fetch indicators from |
-
-6. Optionally adjust advanced settings:
-
-    | Setting | Default | Description |
-    | --- | --- | --- |
-    | Interval | `15m` | How often to poll Datalake for new indicators |
-    | Rate Limit | `0.1` req/s | Maximum API request rate (raise carefully, watch for HTTP 429) |
-    | Rate Limit Burst | `1` | Maximum burst of requests before rate limiting applies |
-    | HTTP Client Timeout | `30s` | Timeout for API requests |
-
-7. Select **Save and continue** to save the integration.
+Add the integration from the **Integrations** page in Kibana by searching for **Orange Cyberdefense Datalake**. You will need to provide your Datalake environment, long-term token, and one or more query hashes.
 
 ### Validation
 
-#### Dashboards
+#### Dashboards populated
 
 1. In the top search bar in Kibana, search for **Dashboards**.
-2. In the search bar, type **Orange Cyberdefense**.
+2. In the search bar, type **Orange Cyberdefense Datalake**.
 3. Open a dashboard and verify that indicator data is populated.
 
 ![Dashboard screenshot 1](../img/screenshot-dashboard1.png)
 
 ![Dashboard screenshot 2](../img/screenshot-dashboard2.png)
 
-#### Transforms
+#### Transforms healthy
 
 1. In the top search bar in Kibana, search for **Transforms**.
 2. Select **Data / Transforms** from the search results.
@@ -119,11 +91,11 @@ For help with Elastic ingest tools, check [Common problems](https://www.elastic.
 
 | Symptom | Possible cause | Resolution |
 | --- | --- | --- |
-| HTTP 429 errors in logs | API rate limit exceeded | Lower the **Rate Limit** setting (default is `0.1` req/s, i.e. 6 requests per minute). Use a dedicated account. |
+| HTTP 429 errors in logs | API rate limit exceeded | Lower the **Rate Limit** setting (default is `0.1` req/s, i.e. 6 requests per minute) |
 | No indicators ingested | Invalid or expired query hash | Verify the query hash still returns results in the Datalake UI |
-| No indicators ingested | Mismatched time filters | Ensure the Datalake query's time filter covers at least the integration's polling interval. |
-| No indicators ingested | Expired API token | Generate a new long-term token from your Datalake account. |
-| `pipeline_error` events in logs | Bulk search creation or polling failed | Check the error message for details — common causes are authentication issues or invalid query hashes. |
+| No indicators ingested | Mismatched time filters | Ensure the Datalake query's time filter covers at least the integration's polling interval |
+| No indicators ingested | Expired API token | Generate a new long-term token from your Datalake account |
+| `pipeline_error` events in logs | Bulk search creation or polling failed | Check the error message for details — common causes are authentication issues or invalid query hashes |
 
 ## Scaling
 
@@ -137,16 +109,23 @@ For more information on architectures that can be used for scaling this integrat
 | --- | --- |
 | CEL | Polls the Datalake Bulk Search API at a configurable interval |
 
-### API usage
+### Exported fields
 
-These APIs are used with this integration:
+Most of the relevant indicators data is mapped to ECS (primarily `threat.indicator.*`). Some additional data is stored with the prefix `ti_orangecyberdefense_datalake.*`.
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| `POST` | `/api/v3/mrti/bulk-search/` | Create a bulk search task for a given query hash |
-| `GET` | `/api/v3/mrti/bulk-search/task/{uuid}` | Poll for task completion and retrieve STIX results |
+Timestamps are mapped as follows:
 
-### Indicator
+| Source                                              | Destination                   | Description |
+|-----------------------------------------------------|-------------------------------|-------------|
+| -                                                   | @timestamp                    | Time the event was received by the Elasticsearch pipeline |
+| -                                                   | event.ingested                | Time the event arrived in the Elasticsearch central data store |
+| ti_orangecyberdefense_datalake.indicator.created    | -                             | Time of the indicator's creation in Datalake |
+| ti_orangecyberdefense_datalake.indicator.modified   | threat.indicator.modified_at  | Time of the indicator's last modification in Datalake |
+| ti_orangecyberdefense_datalake.indicator.valid_from | -                             | Time from which the indicator is valid (here, always identical to `modified_at`) |
+
+The documentation for ECS fields can be found at:
+- [ECS Event Fields](https://www.elastic.co/guide/en/ecs/current/ecs-event.html)
+- [ECS Threat Fields](https://www.elastic.co/guide/en/ecs/current/ecs-threat.html)
 
 **Exported fields**
 
@@ -170,9 +149,9 @@ These APIs are used with this integration:
 | threat.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.indicator.url.original | Unmodified original url as seen in the event source. Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path. This field is meant to represent the URL as it was observed, complete or not. | wildcard |
 | threat.indicator.url.original.text | Multi-field of `threat.indicator.url.original`. | match_only_text |
-| ti_orangecyberdefense_datalake.indicator.created |  | date |
-| ti_orangecyberdefense_datalake.indicator.datalake_query_hash |  | keyword |
-| ti_orangecyberdefense_datalake.indicator.modified |  | date |
-| ti_orangecyberdefense_datalake.indicator.valid_from |  | date |
+| ti_orangecyberdefense_datalake.indicator.created | Time of the indicator's creation in Datalake | date |
+| ti_orangecyberdefense_datalake.indicator.datalake_query_hash | The Datalake query hash at the origin of this event | keyword |
+| ti_orangecyberdefense_datalake.indicator.modified | Time of the indicator's last modification in Datalake | date |
+| ti_orangecyberdefense_datalake.indicator.valid_from | Time from which the indicator is valid | date |
 | ti_orangecyberdefense_datalake.query_hash | The Datalake query hash that produced this indicator. | keyword |
 
