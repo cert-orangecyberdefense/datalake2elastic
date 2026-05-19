@@ -141,12 +141,14 @@ program: |
                   "event": {
                     "kind": "pipeline_error"
                   },
-                  "message": (
-                    size(resp.Body) != 0 ?
-                      string(resp.Body)
-                    :
-                      "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
-                  ),
+                  "error": {
+                    "message": (
+                      size(resp.Body) != 0 ?
+                        string(resp.Body)
+                      :
+                        "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+                    )
+                  },
                   "ti_orangecyberdefense_datalake": {
                     "query_hash": current_hash
                   }
@@ -235,12 +237,14 @@ program: |
                         "event": {
                           "kind": "pipeline_error"
                         },
-                        "message": (
-                          size(resp.Body) != 0 ?
-                            string(resp.Body)
-                          :
-                            "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
-                        ),
+                        "error": {
+                          "message": (
+                            size(resp.Body) != 0 ?
+                              string(resp.Body)
+                            :
+                              "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+                          )
+                        },
                         "ti_orangecyberdefense_datalake": {
                           "query_hash": task.query_hash
                         }
