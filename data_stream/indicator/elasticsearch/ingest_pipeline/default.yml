@@ -53,8 +53,31 @@ processors:
       description: Set direct link to Datalake
       source: "def refs = ctx?.ti_orangecyberdefense_datalake?.indicator?.external_references;\nif (refs != null && refs.size() > 0 && refs[0]?.url != null && refs[0].url.contains('/gui/threat/')) {\n  ctx.threat.indicator.reference = refs[0].url;\n}"
   - script:
-      description: Set x_datalake_score_max
-      source: "if (ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score != null && ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score.size() > 0) {\n  int score_max = 0;\n  for (v in ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score?.values()) {\n    if (v > score_max) {\n      score_max = v;\n    }\n  }\n  ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score_max = score_max;\n}"
+      description: Set _computed.score_max
+      source: |
+        if (ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score != null && ctx.ti_orangecyberdefense_datalake.indicator.x_datalake_score.size() > 0) {
+          int score_max = 0;
+          for (v in ctx.ti_orangecyberdefense_datalake?.indicator?.x_datalake_score?.values()) {
+            if (v > score_max) {
+              score_max = v;
+            }
+          }
+          ctx.ti_orangecyberdefense_datalake.indicator._computed = ['score_max': score_max];
+        }
+  - script:
+      description: Set _computed.sources
+      source: |
+        def indicator = ctx.ti_orangecyberdefense_datalake?.indicator;
+        def sources = new HashSet();
+        for (s in ['x_datalake_sources', 'x_datalake_sighting_sources', 'x_datalake_whitelist_sources']) {
+          for (i in indicator?.get(s) ?: []) {
+            if (i?.source_id != null) sources.add(i.source_id);
+          }
+        }
+        if (!sources.isEmpty()) {
+          indicator._computed = indicator._computed ?: [:];
+          indicator._computed.sources = new ArrayList(sources);
+        }
 on_failure:
   - set:
       field: event.kind

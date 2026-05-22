@@ -8,6 +8,8 @@
   external: ecs
 - name: threat.feed.reference
   external: ecs
+- name: threat.indicator.id
+  external: ecs
 - name: threat.indicator.name
   external: ecs
 - name: threat.indicator.modified_at

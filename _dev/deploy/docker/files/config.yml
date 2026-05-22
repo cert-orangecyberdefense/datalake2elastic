@@ -1,0 +1,35 @@
+rules:
+  # POST /api/v3/mrti/bulk-search/ — Create a bulk search task
+  - path: /api/v3/mrti/bulk-search/
+    methods: ["POST"]
+    request_headers:
+      Authorization: "Token test_datalake_token"
+      Content-Type: application/json
+    responses:
+      - status_code: 200
+        headers:
+          Content-Type: application/json
+        body: |-
+          {"task_uuid": "ca35a9ca-3eda-486f-bf1f-e673c208f5d1"}
+
+  # GET /api/v3/mrti/bulk-search/task/{uuid} — Poll for results (STIX ZIP)
+  - path: /api/v3/mrti/bulk-search/task/ca35a9ca-3eda-486f-bf1f-e673c208f5d1
+    methods: ["GET"]
+    request_headers:
+      Authorization: "Token test_datalake_token"
+    responses:
+      - status_code: 202
+        headers:
+          Content-Type: application/json
+        body: |-
+          {"message":"Not ready yet"}
+      - status_code: 202
+        headers:
+          Content-Type: application/json
+        body: |-
+          {"message":"Not ready yet"}
+      - status_code: 200
+        headers:
+          Content-Type: application/zip
+        body: |
+          {{file "/files/sample_indicators.zip"}}

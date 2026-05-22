@@ -16,9 +16,9 @@ The integration uses a CEL input to periodically query the Datalake Bulk Search 
 2. **Polls the task** via `GET /api/v3/mrti/bulk-search/task/{uuid}` until results are ready or the task fails.
 3. **Extracts STIX indicators** from the returned ZIP archive and sends them through the ingest pipeline, which maps them to ECS `threat.indicator.*` fields.
 
-A `latest_ioc` transform deduplicates indicators so that only the most recent version of each is available for threat matching.
-
 Multiple query hashes can be configured in a single policy to fetch indicators from several saved Datalake queries at once.
+
+An [Elastic Transform](https://www.elastic.co/guide/en/elasticsearch/reference/current/transforms.html) is created to provide a view of active indicators for end users. This transform creates destination indices that are accessible via the alias `logs-ti_orangecyberdefense_datalake_latest.indicator`. When querying for active indicators or setting up indicator match rules, use that alias to avoid false positives from expired indicators.
 
 ## What data does this integration collect?
 
@@ -64,7 +64,9 @@ Elastic Agent is required to stream data from the Datalake API and ship it to El
 
 ### Onboard and configure
 
-Add the integration from the **Integrations** page in Kibana by searching for **Orange Cyberdefense Datalake**. You will need to provide your Datalake environment, long-term token, and one or more query hashes.
+Add the integration from the **Integrations** page in Kibana by searching for **Orange Cyberdefense Datalake**. You will need to provide your Datalake long-term token and one or more query hashes. The **Datalake URL** field is pre-filled with the production endpoint and only needs to be changed for testing purposes (e.g. to point at a pre-production Datalake instance).
+
+Note: By default, the field `threat.indicator.reference` is not clickable in Kibana. You can change this behavior by setting "Url" for the format of this field in the relevant data view settings (`logs-*` for provided search and dashboard).
 
 ### Validation
 
@@ -137,12 +139,14 @@ The documentation for ECS fields can be found at:
 | data_stream.type | Data stream type. | constant_keyword |
 | event.ingested | Timestamp when an event arrived in the central data store. This is different from `@timestamp`, which is when the event originally occurred.  It's also different from `event.created`, which is meant to capture the first time an agent saw the event. In normal conditions, assuming no tampering, the timestamps should chronologically look like this: `@timestamp` \< `event.created` \< `event.ingested`. | date |
 | event.original | Raw text message of entire event. Used to demonstrate log integrity or where the full log message (before splitting it up in multiple parts) may be required, e.g. for reindex. This field is not indexed and doc_values are disabled. It cannot be searched, but it can be retrieved from `_source`. If users wish to override this and index this field, please see `Field data types` in the `Elasticsearch Reference`. | keyword |
+| input.type | Input type. | keyword |
 | labels.is_ioc_transform_source | Indicates whether an IOC is in the raw source data stream, or the in latest destination index. | constant_keyword |
 | threat.feed.description | Description of the threat feed in a UI friendly format. | keyword |
 | threat.feed.name | The name of the threat feed in UI friendly format. | keyword |
 | threat.feed.reference | Reference information for the threat feed in a UI friendly format. | keyword |
 | threat.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
 | threat.indicator.first_seen |  | date |
+| threat.indicator.id | The ID of the indicator used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. This field can have multiple values to allow for the identification of the same indicator across systems that use different ID formats. While not required, a common approach is to use a STIX 2.x indicator ID. | keyword |
 | threat.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |
 | threat.indicator.last_seen |  | date |
 | threat.indicator.modified_at | The date and time when intelligence source last modified information for this indicator. | date |
@@ -150,9 +154,16 @@ The documentation for ECS fields can be found at:
 | threat.indicator.url.domain | Domain of the url, such as "www.elastic.co". In some cases a URL may refer to an IP and/or port directly, without a domain name. In this case, the IP address would go to the `domain` field. If the URL contains a literal IPv6 address enclosed by `[` and `]` (IETF RFC 2732), the `[` and `]` characters should also be captured in the `domain` field. | keyword |
 | threat.indicator.url.original | Unmodified original url as seen in the event source. Note that in network monitoring, the observed URL may be a full URL, whereas in access logs, the URL is often just represented as a path. This field is meant to represent the URL as it was observed, complete or not. | wildcard |
 | threat.indicator.url.original.text | Multi-field of `threat.indicator.url.original`. | match_only_text |
+| ti_orangecyberdefense_datalake.indicator | The STIX indicator object from Datalake | object |
+| ti_orangecyberdefense_datalake.indicator._computed.score_max | Computed at ingest time. Highest score across all threat categories. | byte |
+| ti_orangecyberdefense_datalake.indicator._computed.sources | Computed at ingest time. Union of source_id values from x_datalake_sources, x_datalake_sighting_sources, and x_datalake_whitelist_sources. | keyword |
 | ti_orangecyberdefense_datalake.indicator.created | Time of the indicator's creation in Datalake | date |
-| ti_orangecyberdefense_datalake.indicator.datalake_query_hash | The Datalake query hash at the origin of this event | keyword |
+| ti_orangecyberdefense_datalake.indicator.external_references | External references to the indicator | flattened |
 | ti_orangecyberdefense_datalake.indicator.modified | Time of the indicator's last modification in Datalake | date |
 | ti_orangecyberdefense_datalake.indicator.valid_from | Time from which the indicator is valid | date |
-| ti_orangecyberdefense_datalake.query_hash | The Datalake query hash that produced this indicator. | keyword |
+| ti_orangecyberdefense_datalake.indicator.x_datalake_score | Per-threat-category scores (0-100), e.g. malware, phishing, scam | object |
+| ti_orangecyberdefense_datalake.indicator.x_datalake_sighting_sources | Sighting sources for this indicator | flattened |
+| ti_orangecyberdefense_datalake.indicator.x_datalake_sources | Sources for this indicator | flattened |
+| ti_orangecyberdefense_datalake.indicator.x_datalake_whitelist_sources | Whitelist sources for this indicator | flattened |
+| ti_orangecyberdefense_datalake.query_hash | The Datalake query hash that produced the indicator | keyword |
 

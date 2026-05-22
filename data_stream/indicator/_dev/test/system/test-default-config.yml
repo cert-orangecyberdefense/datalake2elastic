@@ -1,0 +1,14 @@
+service: datalake_stub
+input: cel
+vars:
+  datalake_url: http://{{Hostname}}:{{Port}}
+  datalake_token: test_datalake_token
+  datalake_query_hashes:
+    - test_query_hash
+  rate_limit: "10"
+  rate_limit_burst: 10
+data_stream:
+  vars:
+    interval: 10s
+assert:
+  hit_count: 14

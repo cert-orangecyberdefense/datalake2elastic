@@ -607,7 +607,7 @@
                                                 "b2b92e6e-71ad-4927-8bb6-439b1b919818": {
                                                     "dataType": "string",
                                                     "isBucketed": true,
-                                                    "label": "Top 10 values of ti_orangecyberdefense_datalake.indicator.x_datalake_sources.source_id",
+                                                    "label": "Top 10 values of ti_orangecyberdefense_datalake.indicator._computed.sources",
                                                     "operationType": "terms",
                                                     "params": {
                                                         "exclude": [],
@@ -627,7 +627,7 @@
                                                         "secondaryFields": [],
                                                         "size": 10
                                                     },
-                                                    "sourceField": "ti_orangecyberdefense_datalake.indicator.x_datalake_sources.source_id"
+                                                    "sourceField": "ti_orangecyberdefense_datalake.indicator._computed.sources"
                                                 },
                                                 "d86e6e66-8195-4e8d-8fd9-3e96c1e9bfde": {
                                                     "dataType": "number",
@@ -922,7 +922,7 @@
                                                 "f2bdaf89-63c8-45b3-be1a-5d5d1eaa2089": {
                                                     "dataType": "string",
                                                     "isBucketed": true,
-                                                    "label": "ti_orangecyberdefense_datalake.indicator.x_datalake_score_max",
+                                                    "label": "ti_orangecyberdefense_datalake.indicator._computed.score_max",
                                                     "operationType": "range",
                                                     "params": {
                                                         "maxBars": 499.5,
@@ -953,7 +953,7 @@
                                                         "type": "range"
                                                     },
                                                     "scale": "ordinal",
-                                                    "sourceField": "ti_orangecyberdefense_datalake.indicator.x_datalake_score_max"
+                                                    "sourceField": "ti_orangecyberdefense_datalake.indicator._computed.score_max"
                                                 }
                                             },
                                             "incompleteColumns": {},

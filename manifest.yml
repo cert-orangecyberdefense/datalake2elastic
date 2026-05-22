@@ -37,18 +37,15 @@ policy_templates:
         title: Collect indicators from Datalake
         description: Collect indicators from Orange Cyberdefense Datalake CTI.
         vars:
-          - name: datalake_env
-            type: select
-            title: Datalake Environment
+          - name: datalake_url
+            type: text
+            title: Datalake URL
+            description: >-
+              Base URL of the Datalake API. Defaults to the production environment. Override only if you have access to a different Datalake instance (e.g. pre-production). Do not include a trailing slash.
             required: true
             show_user: true
             multi: false
-            options:
-              - text: prod
-                value: prod
-              - text: preprod
-                value: preprod
-            default: prod
+            default: https://datalake.cert.orangecyberdefense.com
           - name: datalake_token
             type: password
             title: Datalake Long Term Token

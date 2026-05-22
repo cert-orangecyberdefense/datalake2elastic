@@ -19,11 +19,10 @@ resource.rate_limit.limit: {{rate_limit}}
 {{#if rate_limit_burst}}
 resource.rate_limit.burst: {{rate_limit_burst}}
 {{/if}}
-resource.url: https://datalake.cert.orangecyberdefense.com/
+resource.url: {{datalake_url}}
 resource.headers:
   User-Agent: "datalake2elastic/0.0.1"
 state:
-  datalake_env: {{datalake_env}}
   datalake_token: {{datalake_token}}
   datalake_query_hashes: {{datalake_query_hashes}}
 redact:
@@ -39,11 +38,7 @@ program: |
       state.with(
         {
           "cursor": {
-            "datalake_url": (state.datalake_env == "prod" ?
-                "https://datalake.cert.orangecyberdefense.com/api/v3/mrti/bulk-search/"
-              :
-                "https://ti2.extranet.mrti-center.com/api/v3/mrti/bulk-search/"
-            ),
+            "datalake_url": state.url + "/api/v3/mrti/bulk-search/",
             "datalake_query_hashes": string(state.datalake_query_hashes).split(","),
             "datalake_token": state.datalake_token
           }
@@ -68,13 +63,9 @@ program: |
           "create_index": 0,
           "poll_index": 0
         },
-        "cursor": has(state.datalake_env) ?
+        "cursor": has(state.url) ?
           {
-            "datalake_url": (state.datalake_env == "prod" ?
-                "https://datalake.cert.orangecyberdefense.com/api/v3/mrti/bulk-search/"
-              :
-                "https://ti2.extranet.mrti-center.com/api/v3/mrti/bulk-search/"
-            ),
+            "datalake_url": state.url + "/api/v3/mrti/bulk-search/",
             "datalake_query_hashes": string(state.datalake_query_hashes).split(","),
             "datalake_token": state.datalake_token
           }
@@ -323,11 +314,6 @@ program: |
             )
         )
   )
-
-fields_under_root: true
-fields:
-  _conf:
-    interval: "{{interval}}"
 
 tags:
 {{#if preserve_original_event}}
