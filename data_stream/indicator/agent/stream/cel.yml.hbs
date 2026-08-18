@@ -63,7 +63,8 @@ program: |
           "create_index": 0,
           "poll_index": 0
         },
-        "cursor": has(state.url) ?
+        // Reload parameters when runner restart
+        "cursor": has(state.datalake_query_hashes) ?
           {
             "datalake_url": state.url + "/api/v3/mrti/bulk-search/",
             "datalake_query_hashes": string(state.datalake_query_hashes).split(","),
