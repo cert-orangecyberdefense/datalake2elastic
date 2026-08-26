@@ -97,7 +97,17 @@ For help with Elastic ingest tools, check [Common problems](https://www.elastic.
 | No indicators ingested | Invalid or expired query hash | Verify the query hash still returns results in the Datalake UI |
 | No indicators ingested | Mismatched time filters | Ensure the Datalake query's time filter covers at least the integration's polling interval |
 | No indicators ingested | Expired API token | Generate a new long-term token from your Datalake account |
-| `pipeline_error` events in logs | Bulk search creation or polling failed | Check the error message for details — common causes are authentication issues or invalid query hashes |
+| No indicators ingested | Bulk search creation or polling failed | Enable debug mode (see below) and look for `Error:`-prefixed state messages — common causes are authentication issues or invalid query hashes |
+
+### Enabling debug mode
+
+By default, internal state messages emitted by the integration (cycle progress, task lifecycle, HTTP errors) are dropped at the ingest pipeline. To surface them for troubleshooting:
+
+1. Edit the integration policy in Kibana.
+2. Toggle **Enable debug messages** on.
+3. Save and deploy the updated policy.
+
+Once enabled, state messages are indexed alongside indicators in the same data stream. They can be filtered with `event.kind: "state"`. Error events specifically are prefixed with `Error:` in the `message` field. Turn debug mode off again once you're done to avoid polluting the index.
 
 ## Scaling
 

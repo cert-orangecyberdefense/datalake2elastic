@@ -47,6 +47,14 @@ streams:
         multi: false
         required: true
         show_user: false
+      - name: debug
+        type: bool
+        title: Enable debug messages
+        description: Emit internal state messages for troubleshooting. When disabled, these are silently dropped at the ingest pipeline. Turn off for production.
+        default: false
+        multi: false
+        required: true
+        show_user: true
       - name: enable_request_tracer
         type: bool
         title: Enable request tracing

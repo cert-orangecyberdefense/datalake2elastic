@@ -1,8 +1,11 @@
 ---
 description: Pipeline for converting Orange Cyberdefense Datalake STIX output to Elastic expected format for indicators
 processors:
+  - drop:
+      description: Drop state (debug) messages unless debug is enabled
+      if: ctx.event?.kind == 'state' && !ctx.tags.contains('datalake_debug')
   - terminate:
-      description: Skip pipeline for non-indicator messages
+      description: Pass through state (debug) messages when enabled
       if: ctx.event?.type != 'indicator'
   - drop:
       description: Drop non-indicator STIX objects

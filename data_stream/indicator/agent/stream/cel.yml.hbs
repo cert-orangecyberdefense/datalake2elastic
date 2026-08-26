@@ -131,16 +131,14 @@ program: |
               "events": [
                 {
                   "event": {
-                    "kind": "pipeline_error"
+                    "kind": "state"
                   },
-                  "error": {
-                    "message": (
-                      size(resp.Body) != 0 ?
-                        string(resp.Body)
-                      :
-                        "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
-                    )
-                  },
+                  "message": "Error: Bulk search creation failed: " + (
+                    size(resp.Body) != 0 ?
+                      string(resp.Body)
+                    :
+                      "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+                  ),
                   "ti_orangecyberdefense_datalake": {
                     "query_hash": current_hash
                   }
@@ -227,16 +225,14 @@ program: |
                     "events": [
                       {
                         "event": {
-                          "kind": "pipeline_error"
+                          "kind": "state"
                         },
-                        "error": {
-                          "message": (
-                            size(resp.Body) != 0 ?
-                              string(resp.Body)
-                            :
-                              "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
-                          )
-                        },
+                        "message": "Error: Bulk search poll failed: " + (
+                          size(resp.Body) != 0 ?
+                            string(resp.Body)
+                          :
+                            "[HTTP ERROR] " + string(resp.StatusCode) + string(resp.Status) + " (" + string(resp.StatusCode) + ")"
+                        ),
                         "ti_orangecyberdefense_datalake": {
                           "query_hash": task.query_hash
                         }
@@ -319,6 +315,9 @@ program: |
 tags:
 {{#if preserve_original_event}}
   - preserve_original_event
+{{/if}}
+{{#if debug}}
+  - datalake_debug
 {{/if}}
 {{#each tags as |tag|}}
   - {{tag}}
