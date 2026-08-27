@@ -22,11 +22,11 @@
     },
     "event": {
         "agent_id_status": "verified",
-        "category": "threat",
+        "category": ["threat"],
         "dataset": "ti_orangecyberdefense_datalake.indicator",
         "ingested": "2026-05-22T15:03:12Z",
         "kind": "enrichment",
-        "type": "indicator"
+        "type": ["indicator"]
     },
     "input": {
         "type": "cel"
@@ -41,7 +41,7 @@
             "reference": "https://datalake.cert.orangecyberdefense.com/"
         },
         "indicator": {
-            "id": "indicator--0f292634-a740-3b56-854e-d97f698d2db6",
+            "id": ["indicator--0f292634-a740-3b56-854e-d97f698d2db6"],
             "modified_at": "2026-05-20T23:34:55.000Z",
             "name": "https://www.caf-fr-remboursement.info",
             "reference": "https://datalake.cert.orangecyberdefense.com/gui/threat/30cf681c7874588c9107e36e97c08be0",

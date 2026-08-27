@@ -265,8 +265,8 @@ program: |
                       ] + body.objects.map(obj, {
                         "event": {
                           "kind": "enrichment",
-                          "category": "threat",
-                          "type": "indicator",
+                          "category": ["threat"],
+                          "type": ["indicator"],
                           "original": obj.encode_json()
                         },
                         "ti_orangecyberdefense_datalake": {

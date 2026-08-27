@@ -3,10 +3,10 @@ description: Pipeline for converting Orange Cyberdefense Datalake STIX output to
 processors:
   - drop:
       description: Drop state (debug) messages unless debug is enabled
-      if: ctx.event?.kind == 'state' && !ctx.tags.contains('datalake_debug')
+      if: ctx.event?.kind == 'state' && (ctx.tags == null || !ctx.tags.contains('datalake_debug'))
   - terminate:
       description: Pass through state (debug) messages when enabled
-      if: ctx.event?.type != 'indicator'
+      if: ctx.event?.kind != 'enrichment'
   - drop:
       description: Drop non-indicator STIX objects
       if: ctx.ti_orangecyberdefense_datalake.indicator.type != 'indicator'
@@ -23,9 +23,9 @@ processors:
       value:
         name: Orange Cyberdefense Datalake CTI
         reference: https://datalake.cert.orangecyberdefense.com/
-  - set:
-      copy_from: ti_orangecyberdefense_datalake.indicator.id
+  - append:
       field: threat.indicator.id
+      value: '{{{ti_orangecyberdefense_datalake.indicator.id}}}'
   - set:
       copy_from: ti_orangecyberdefense_datalake.indicator.name
       field: threat.indicator.name
