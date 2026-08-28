@@ -256,12 +256,12 @@
                 },
                 "gridData": {
                     "h": 4,
-                    "i": "4f777529-edce-4dd9-95cb-ad71260ceac3",
+                    "i": "00cc9072-d3ea-40fa-8c43-296e11817511",
                     "w": 7,
                     "x": 17,
                     "y": 0
                 },
-                "panelIndex": "4f777529-edce-4dd9-95cb-ad71260ceac3",
+                "panelIndex": "00cc9072-d3ea-40fa-8c43-296e11817511",
                 "type": "lens"
             },
             {
@@ -560,12 +560,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596",
+                    "i": "f6d7b957-8470-4ff7-a1de-f17ba73351e1",
                     "w": 8,
                     "x": 24,
                     "y": 0
                 },
-                "panelIndex": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596",
+                "panelIndex": "f6d7b957-8470-4ff7-a1de-f17ba73351e1",
                 "type": "lens"
             },
             {
@@ -865,12 +865,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "c2463203-d53d-4cdb-a399-7cd521e91ed8",
+                    "i": "117fdf6a-b7fc-4ed1-a8f0-91e638701bbe",
                     "w": 8,
                     "x": 32,
                     "y": 0
                 },
-                "panelIndex": "c2463203-d53d-4cdb-a399-7cd521e91ed8",
+                "panelIndex": "117fdf6a-b7fc-4ed1-a8f0-91e638701bbe",
                 "type": "lens"
             },
             {
@@ -1246,12 +1246,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "34cc38db-42bb-4bd2-9988-d3fcd319217e",
+                    "i": "3f87eb71-e45b-4e44-9c22-a85767f92c20",
                     "w": 8,
                     "x": 40,
                     "y": 0
                 },
-                "panelIndex": "34cc38db-42bb-4bd2-9988-d3fcd319217e",
+                "panelIndex": "3f87eb71-e45b-4e44-9c22-a85767f92c20",
                 "type": "lens"
             },
             {
@@ -1286,12 +1286,12 @@
                 },
                 "gridData": {
                     "h": 7,
-                    "i": "c8b4b804-93d8-4440-9a09-392fa351796d",
+                    "i": "f16993cc-51f4-49a2-aa04-b62e50367ab6",
                     "w": 24,
                     "x": 0,
                     "y": 4
                 },
-                "panelIndex": "c8b4b804-93d8-4440-9a09-392fa351796d",
+                "panelIndex": "f16993cc-51f4-49a2-aa04-b62e50367ab6",
                 "type": "visualization"
             },
             {
@@ -1596,12 +1596,12 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46",
+                    "i": "23db3be3-4565-4c55-81ac-ba64e8c2baa0",
                     "w": 24,
                     "x": 0,
                     "y": 11
                 },
-                "panelIndex": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46",
+                "panelIndex": "23db3be3-4565-4c55-81ac-ba64e8c2baa0",
                 "type": "lens"
             },
             {
@@ -1906,28 +1906,13 @@
                 },
                 "gridData": {
                     "h": 11,
-                    "i": "5795aea3-8fba-4724-aef3-bab4a046216e",
+                    "i": "d76696e2-57f3-43d0-84e6-ba76a989a960",
                     "w": 24,
                     "x": 24,
                     "y": 11
                 },
-                "panelIndex": "5795aea3-8fba-4724-aef3-bab4a046216e",
+                "panelIndex": "d76696e2-57f3-43d0-84e6-ba76a989a960",
                 "type": "lens"
-            },
-            {
-                "embeddableConfig": {
-                    "savedObjectId": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62"
-                },
-                "gridData": {
-                    "h": 15,
-                    "i": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-                    "w": 48,
-                    "x": 0,
-                    "y": 22
-                },
-                "panelIndex": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-                "panelRefName": "panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-                "type": "search"
             },
             {
                 "embeddableConfig": {
@@ -1961,12 +1946,12 @@
                 },
                 "gridData": {
                     "h": 4,
-                    "i": "50a1b04c-ab7b-462d-91c0-a4b7eb935274",
+                    "i": "df5c68e5-d840-4c8b-b87c-3193a7fce12f",
                     "w": 10,
                     "x": 0,
                     "y": 0
                 },
-                "panelIndex": "50a1b04c-ab7b-462d-91c0-a4b7eb935274",
+                "panelIndex": "df5c68e5-d840-4c8b-b87c-3193a7fce12f",
                 "type": "visualization"
             },
             {
@@ -2201,211 +2186,342 @@
                 },
                 "gridData": {
                     "h": 4,
-                    "i": "6fe3726f-852d-4188-9f38-bb1e33bf1788",
+                    "i": "b57a75e2-53a8-43aa-a955-059d1c239479",
                     "w": 7,
                     "x": 10,
                     "y": 0
                 },
-                "panelIndex": "6fe3726f-852d-4188-9f38-bb1e33bf1788",
+                "panelIndex": "b57a75e2-53a8-43aa-a955-059d1c239479",
                 "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "columns": [
+                            "threat.indicator.type",
+                            "threat.indicator.name",
+                            "threat.indicator.reference"
+                        ],
+                        "description": "",
+                        "grid": {},
+                        "hideChart": false,
+                        "isTextBasedQuery": false,
+                        "kibanaSavedObjectMeta": {
+                            "searchSourceJSON": {
+                                "fields": [
+                                    {
+                                        "field": "*",
+                                        "include_unmapped": true
+                                    }
+                                ],
+                                "filter": [
+                                    {
+                                        "$state": {
+                                            "store": "appState"
+                                        },
+                                        "meta": {
+                                            "alias": null,
+                                            "disabled": false,
+                                            "field": "event.dataset",
+                                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                                            "key": "event.dataset",
+                                            "negate": false,
+                                            "params": {
+                                                "query": "ti_orangecyberdefense_datalake.indicator"
+                                            },
+                                            "type": "phrase"
+                                        },
+                                        "query": {
+                                            "match_phrase": {
+                                                "event.dataset": "ti_orangecyberdefense_datalake.indicator"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$state": {
+                                            "store": "appState"
+                                        },
+                                        "meta": {
+                                            "alias": null,
+                                            "disabled": false,
+                                            "field": "event.kind",
+                                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[1].meta.index",
+                                            "key": "event.kind",
+                                            "negate": false,
+                                            "params": {
+                                                "query": "enrichment"
+                                            },
+                                            "type": "phrase"
+                                        },
+                                        "query": {
+                                            "match_phrase": {
+                                                "event.kind": "enrichment"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$state": {
+                                            "store": "appState"
+                                        },
+                                        "meta": {
+                                            "alias": null,
+                                            "disabled": false,
+                                            "field": "event.type",
+                                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[2].meta.index",
+                                            "key": "event.type",
+                                            "negate": false,
+                                            "params": {
+                                                "query": "indicator"
+                                            },
+                                            "type": "phrase"
+                                        },
+                                        "query": {
+                                            "match_phrase": {
+                                                "event.type": "indicator"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "$state": {
+                                            "store": "appState"
+                                        },
+                                        "meta": {
+                                            "alias": null,
+                                            "disabled": false,
+                                            "field": "labels.is_ioc_transform_source",
+                                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[3].meta.index",
+                                            "key": "labels.is_ioc_transform_source",
+                                            "negate": false,
+                                            "params": {
+                                                "query": "false"
+                                            },
+                                            "type": "phrase"
+                                        },
+                                        "query": {
+                                            "match_phrase": {
+                                                "labels.is_ioc_transform_source": "false"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "highlightAll": true,
+                                "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                },
+                                "sort": [
+                                    {
+                                        "@timestamp": {
+                                            "format": "strict_date_optional_time",
+                                            "order": "desc"
+                                        }
+                                    },
+                                    {
+                                        "_doc": "desc"
+                                    }
+                                ]
+                            }
+                        },
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[1].meta.index",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[2].meta.index",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[3].meta.index",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "sort": [
+                            [
+                                "@timestamp",
+                                "desc"
+                            ]
+                        ],
+                        "timeRestore": false,
+                        "title": ""
+                    },
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "title": "Orange Cyberdefense Datalake CTI indicators",
+                    "type": "search"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "57a39a1f-b482-49d8-8d25-1c4850e47dbd",
+                    "w": 48,
+                    "x": 0,
+                    "y": 22
+                },
+                "panelIndex": "57a39a1f-b482-49d8-8d25-1c4850e47dbd",
+                "type": "search"
             }
         ],
         "timeRestore": false,
-        "title": "Orange Cyberdefense Datalake CTI",
+        "title": "[Logs Orange Cyberdefense Datalake] Indicators",
         "version": 3
     },
     "coreMigrationVersion": "8.8.0",
-    "created_at": "2026-04-24T11:05:23.782Z",
-    "created_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0",
+    "created_at": "2026-08-28T15:12:30.772Z",
     "id": "ti_orangecyberdefense_datalake-afa0df7d-0973-4951-a952-ca83a4478330",
     "references": [
         {
             "id": "logs-*",
-            "name": "4f777529-edce-4dd9-95cb-ad71260ceac3:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
+            "name": "00cc9072-d3ea-40fa-8c43-296e11817511:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
+            "name": "f6d7b957-8470-4ff7-a1de-f17ba73351e1:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:e783a006-add4-4c44-b1fe-80e015cb0ae1",
+            "name": "f6d7b957-8470-4ff7-a1de-f17ba73351e1:e783a006-add4-4c44-b1fe-80e015cb0ae1",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:10c133d7-9f05-40a2-af1b-bf361d4157b3",
+            "name": "f6d7b957-8470-4ff7-a1de-f17ba73351e1:10c133d7-9f05-40a2-af1b-bf361d4157b3",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "2e0fa913-d86d-4e40-b0b2-432e2a7cf596:0e1665d8-2ae6-42b6-acc3-b0b6ee159df7",
+            "name": "f6d7b957-8470-4ff7-a1de-f17ba73351e1:0e1665d8-2ae6-42b6-acc3-b0b6ee159df7",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
+            "name": "117fdf6a-b7fc-4ed1-a8f0-91e638701bbe:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:4cfa44d8-7190-4019-89d8-8b1034a01b22",
+            "name": "117fdf6a-b7fc-4ed1-a8f0-91e638701bbe:4cfa44d8-7190-4019-89d8-8b1034a01b22",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:2a178b24-7135-49a1-a93f-dab80959ee41",
+            "name": "117fdf6a-b7fc-4ed1-a8f0-91e638701bbe:2a178b24-7135-49a1-a93f-dab80959ee41",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "c2463203-d53d-4cdb-a399-7cd521e91ed8:650d6262-6b1a-460d-ae07-bc627ecdb3d7",
+            "name": "117fdf6a-b7fc-4ed1-a8f0-91e638701bbe:650d6262-6b1a-460d-ae07-bc627ecdb3d7",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
+            "name": "3f87eb71-e45b-4e44-9c22-a85767f92c20:indexpattern-datasource-layer-07487a25-d0cc-47ee-9ac8-1a534af3e26e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:5830e1e7-1a54-4576-9644-d1c0f8806f55",
+            "name": "3f87eb71-e45b-4e44-9c22-a85767f92c20:5830e1e7-1a54-4576-9644-d1c0f8806f55",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:2b8259f5-340a-4d09-a7d1-66e3a35eed47",
+            "name": "3f87eb71-e45b-4e44-9c22-a85767f92c20:2b8259f5-340a-4d09-a7d1-66e3a35eed47",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "34cc38db-42bb-4bd2-9988-d3fcd319217e:bd88a2c4-2842-498c-ae4f-79f44632b79e",
+            "name": "3f87eb71-e45b-4e44-9c22-a85767f92c20:bd88a2c4-2842-498c-ae4f-79f44632b79e",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
+            "name": "23db3be3-4565-4c55-81ac-ba64e8c2baa0:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:be509f73-9d4d-4fbe-a3ae-d4d8ed339ceb",
+            "name": "23db3be3-4565-4c55-81ac-ba64e8c2baa0:be509f73-9d4d-4fbe-a3ae-d4d8ed339ceb",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:1b012744-aee2-4cf2-a626-4ec89b673c5f",
+            "name": "23db3be3-4565-4c55-81ac-ba64e8c2baa0:1b012744-aee2-4cf2-a626-4ec89b673c5f",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "13bd0be4-fff4-4bd5-b6bc-d68f9e24ce46:50fcaf58-02f2-4a3b-ba83-58b1e92cc416",
+            "name": "23db3be3-4565-4c55-81ac-ba64e8c2baa0:50fcaf58-02f2-4a3b-ba83-58b1e92cc416",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
+            "name": "d76696e2-57f3-43d0-84e6-ba76a989a960:indexpattern-datasource-layer-4b1e7de6-703e-48bc-bb08-19866e915ead",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:a0208f88-84c2-4c19-b7dd-4435f6f96e2b",
+            "name": "d76696e2-57f3-43d0-84e6-ba76a989a960:a0208f88-84c2-4c19-b7dd-4435f6f96e2b",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:c08f5e22-50c4-45d4-a988-882bd6aa87ab",
+            "name": "d76696e2-57f3-43d0-84e6-ba76a989a960:c08f5e22-50c4-45d4-a988-882bd6aa87ab",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "5795aea3-8fba-4724-aef3-bab4a046216e:fa661e2d-19ca-43a1-9d10-79ab78a48aa6",
+            "name": "d76696e2-57f3-43d0-84e6-ba76a989a960:fa661e2d-19ca-43a1-9d10-79ab78a48aa6",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.index",
+            "name": "b57a75e2-53a8-43aa-a955-059d1c239479:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "name": "57a39a1f-b482-49d8-8d25-1c4850e47dbd:kibanaSavedObjectMeta.searchSourceJSON.index",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[1].meta.index",
+            "name": "57a39a1f-b482-49d8-8d25-1c4850e47dbd:kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[2].meta.index",
+            "name": "57a39a1f-b482-49d8-8d25-1c4850e47dbd:kibanaSavedObjectMeta.searchSourceJSON.filter[1].meta.index",
             "type": "index-pattern"
         },
         {
             "id": "logs-*",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:kibanaSavedObjectMeta.searchSourceJSON.filter[3].meta.index",
+            "name": "57a39a1f-b482-49d8-8d25-1c4850e47dbd:kibanaSavedObjectMeta.searchSourceJSON.filter[2].meta.index",
             "type": "index-pattern"
         },
         {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_56f1bdac-653b-4f70-9792-a6f13476ffc2",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_56f1bdac-653b-4f70-9792-a6f13476ffc2",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
-            "id": "ti_orangecyberdefense_datalake-f8e71f59-3e49-412b-8784-939955709e62",
-            "name": "e910b308-4c1d-4bc6-a7d0-9ade08463c1d:panel_e910b308-4c1d-4bc6-a7d0-9ade08463c1d",
-            "type": "search"
-        },
-        {
             "id": "logs-*",
-            "name": "6fe3726f-852d-4188-9f38-bb1e33bf1788:indexpattern-datasource-layer-04044f6c-369a-48a0-a61f-90a65d9344ac",
+            "name": "57a39a1f-b482-49d8-8d25-1c4850e47dbd:kibanaSavedObjectMeta.searchSourceJSON.filter[3].meta.index",
             "type": "index-pattern"
         }
     ],
     "type": "dashboard",
-    "typeMigrationVersion": "10.3.0",
-    "updated_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0"
+    "typeMigrationVersion": "10.3.0"
 }

@@ -66,7 +66,7 @@ Elastic Agent is required to stream data from the Datalake API and ship it to El
 
 Add the integration from the **Integrations** page in Kibana by searching for **Orange Cyberdefense Datalake**. You will need to provide your Datalake long-term token and one or more query hashes. The **Datalake URL** field is pre-filled with the production endpoint and only needs to be changed for testing purposes (e.g. to point at a pre-production Datalake instance).
 
-Note: By default, the field `threat.indicator.reference` is not clickable in Kibana. You can change this behavior by setting "Url" for the format of this field in the relevant data view settings (`logs-*` for provided search and dashboard).
+Note: By default, the field `threat.indicator.reference` is not clickable in Kibana. You can change this behavior by setting "Url" for the format of this field in the relevant data view settings (`logs-*` for the provided dashboard).
 
 ### Validation
 
