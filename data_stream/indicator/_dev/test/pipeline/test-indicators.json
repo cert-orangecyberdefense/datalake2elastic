@@ -168,6 +168,41 @@
           ]
         }
       }
+    },
+    {
+      "event": {
+        "kind": "enrichment",
+        "category": ["threat"],
+        "type": ["indicator"],
+        "original": "{\"type\":\"indicator\",\"id\":\"indicator--44099b1e-ea3e-334f-b9b2-301de76b7abb\",\"name\":\"56e4ebc8d7d8f46d2c05cd4ffc1725f1fa92b068\",\"pattern\":\"[file:hashes.MD5 = 'bdf1078c8a11a1d2cc3e8e53e1420450' OR file:hashes.'SHA-256' = 'fbbd2ca2ec1443f7788d78f482f892956f45c60c7573173fa8f748b5200d7322' OR file:hashes.'SHA-1' = '56e4ebc8d7d8f46d2c05cd4ffc1725f1fa92b068' OR file:hashes.'SHA-512' = '7b739fd51d0cb59ef13200b5498fcbc0acdfcf99ac617c8a71f898c0aab04f587e5d80d2784f0847151b26ad315e8b032472467c30cd8150bbe73f4471f136b7']\"}"
+      },
+      "ti_orangecyberdefense_datalake": {
+        "query_hash": "test_query_hash_1",
+        "indicator": {
+          "type": "indicator",
+          "spec_version": "2.1",
+          "id": "indicator--44099b1e-ea3e-334f-b9b2-301de76b7abb",
+          "created_by_ref": "identity--54737adf-74a3-3fe4-a1e7-138694561b49",
+          "created": "2026-08-31T09:05:28.000Z",
+          "modified": "2026-08-31T09:05:28.000Z",
+          "name": "56e4ebc8d7d8f46d2c05cd4ffc1725f1fa92b068",
+          "indicator_types": ["malicious-activity"],
+          "pattern": "[file:hashes.MD5 = 'bdf1078c8a11a1d2cc3e8e53e1420450' OR file:hashes.'SHA-256' = 'fbbd2ca2ec1443f7788d78f482f892956f45c60c7573173fa8f748b5200d7322' OR file:hashes.'SHA-1' = '56e4ebc8d7d8f46d2c05cd4ffc1725f1fa92b068' OR file:hashes.'SHA-512' = '7b739fd51d0cb59ef13200b5498fcbc0acdfcf99ac617c8a71f898c0aab04f587e5d80d2784f0847151b26ad315e8b032472467c30cd8150bbe73f4471f136b7']",
+          "pattern_type": "stix",
+          "pattern_version": "2.1",
+          "valid_from": "2026-08-31T09:05:28Z",
+          "labels": ["world_watch"],
+          "external_references": [
+            {"source_name": "Orange Cyberdefense", "url": "https://datalake.cert.orangecyberdefense.com/gui/threat/d36021c8baaf60cd7612c3ab9735442b", "external_id": "d36021c8baaf60cd7612c3ab9735442b"}
+          ],
+          "x_datalake_atom_type": "file",
+          "x_datalake_score": {"malware": 50},
+          "x_datalake_sources": [
+            {"source_id": "org:91", "first_seen": "2026-08-31T09:05:28Z", "last_updated": "2026-08-31T09:05:28Z", "count": 1}
+          ]
+        }
+      }
     }
   ]
 }
+

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Powered by Orange Cyberdefense Datalake, this threat intelligence integration feeds the Elastic Security stack with curated indicators — IP addresses, domains, URLs, and email addresses — scored and enriched.
+Powered by Orange Cyberdefense Datalake, this threat intelligence integration feeds the Elastic Security stack with curated indicators — IP addresses, domains, URLs, email addresses, and file hashes — scored and enriched.
 
 ### Compatibility
 
@@ -31,6 +31,7 @@ The Orange Cyberdefense Datalake integration collects the following data:
     | `ipv4-addr` / `ipv6-addr` | `threat.indicator.ip` |
     | `domain-name` | `threat.indicator.url.domain` |
     | `email-addr` | `threat.indicator.email.address` |
+    | `file` | `threat.indicator.file.hash.{md5,sha1,sha256,sha512}` |
     | `url` | `threat.indicator.url.full` |
 
 Each indicator also includes Datalake-specific metadata under `ti_orangecyberdefense_datalake`:

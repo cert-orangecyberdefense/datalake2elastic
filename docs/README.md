@@ -2,7 +2,7 @@
 
 ## Overview
 
-Powered by Orange Cyberdefense Datalake, this threat intelligence integration feeds the Elastic Security stack with curated indicators — IP addresses, domains, URLs, and email addresses — scored and enriched.
+Powered by Orange Cyberdefense Datalake, this threat intelligence integration feeds the Elastic Security stack with curated indicators — IP addresses, domains, URLs, email addresses, and file hashes — scored and enriched.
 
 ### Compatibility
 
@@ -31,6 +31,7 @@ The Orange Cyberdefense Datalake integration collects the following data:
     | `ipv4-addr` / `ipv6-addr` | `threat.indicator.ip` |
     | `domain-name` | `threat.indicator.url.domain` |
     | `email-addr` | `threat.indicator.email.address` |
+    | `file` | `threat.indicator.file.hash.{md5,sha1,sha256,sha512}` |
     | `url` | `threat.indicator.url.full` |
 
 Each indicator also includes Datalake-specific metadata under `ti_orangecyberdefense_datalake`:
@@ -155,6 +156,10 @@ The documentation for ECS fields can be found at:
 | threat.feed.name | The name of the threat feed in UI friendly format. | keyword |
 | threat.feed.reference | Reference information for the threat feed in a UI friendly format. | keyword |
 | threat.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
+| threat.indicator.file.hash.md5 | MD5 hash. | keyword |
+| threat.indicator.file.hash.sha1 | SHA1 hash. | keyword |
+| threat.indicator.file.hash.sha256 | SHA256 hash. | keyword |
+| threat.indicator.file.hash.sha512 | SHA512 hash. | keyword |
 | threat.indicator.first_seen |  | date |
 | threat.indicator.id | The ID of the indicator used by this threat to conduct behavior commonly modeled using MITRE ATT&CK®. This field can have multiple values to allow for the identification of the same indicator across systems that use different ID formats. While not required, a common approach is to use a STIX 2.x indicator ID. | keyword |
 | threat.indicator.ip | Identifies a threat indicator as an IP address (irrespective of direction). | ip |

@@ -22,6 +22,14 @@
   external: ecs
 - name: threat.indicator.email.address
   external: ecs
+- name: threat.indicator.file.hash.md5
+  external: ecs
+- name: threat.indicator.file.hash.sha1
+  external: ecs
+- name: threat.indicator.file.hash.sha256
+  external: ecs
+- name: threat.indicator.file.hash.sha512
+  external: ecs
 - name: threat.indicator.url.domain
   external: ecs
 - name: threat.indicator.url.original

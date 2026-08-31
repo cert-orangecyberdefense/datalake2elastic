@@ -17,7 +17,7 @@ processors:
         - '\[%{DATA:threat.indicator.type}:'
   - drop:
       description: Drops unsupported indicator types
-      if: '![''domain-name'', ''email-addr'', ''ipv4-addr'', ''ipv6-addr'', ''url''].contains(ctx.threat.indicator.type)'
+      if: '![''domain-name'', ''email-addr'', ''file'', ''ipv4-addr'', ''ipv6-addr'', ''url''].contains(ctx.threat.indicator.type)'
   - set:
       field: threat.feed
       value:
@@ -44,6 +44,34 @@ processors:
       copy_from: ti_orangecyberdefense_datalake.indicator.name
       field: threat.indicator.url.domain
       if: ctx.threat.indicator.type == 'domain-name'
+  - grok:
+      description: Extract MD5 hash from STIX file pattern
+      field: ti_orangecyberdefense_datalake.indicator.pattern
+      patterns:
+        - "file:hashes\\.'?MD5'?%{SPACE}=%{SPACE}'%{DATA:threat.indicator.file.hash.md5}'"
+      if: ctx.threat.indicator.type == 'file'
+      ignore_failure: true
+  - grok:
+      description: Extract SHA-1 hash from STIX file pattern
+      field: ti_orangecyberdefense_datalake.indicator.pattern
+      patterns:
+        - "file:hashes\\.'?SHA-?1'?%{SPACE}=%{SPACE}'%{DATA:threat.indicator.file.hash.sha1}'"
+      if: ctx.threat.indicator.type == 'file'
+      ignore_failure: true
+  - grok:
+      description: Extract SHA-256 hash from STIX file pattern
+      field: ti_orangecyberdefense_datalake.indicator.pattern
+      patterns:
+        - "file:hashes\\.'?SHA-?256'?%{SPACE}=%{SPACE}'%{DATA:threat.indicator.file.hash.sha256}'"
+      if: ctx.threat.indicator.type == 'file'
+      ignore_failure: true
+  - grok:
+      description: Extract SHA-512 hash from STIX file pattern
+      field: ti_orangecyberdefense_datalake.indicator.pattern
+      patterns:
+        - "file:hashes\\.'?SHA-?512'?%{SPACE}=%{SPACE}'%{DATA:threat.indicator.file.hash.sha512}'"
+      if: ctx.threat.indicator.type == 'file'
+      ignore_failure: true
   - uri_parts:
       field: ti_orangecyberdefense_datalake.indicator.name
       if: ctx.threat.indicator.type == 'url'
