@@ -41,6 +41,7 @@
             "reference": "https://datalake.cert.orangecyberdefense.com/"
         },
         "indicator": {
+            "confidence": "Not Specified",
             "id": ["indicator--0f292634-a740-3b56-854e-d97f698d2db6"],
             "modified_at": "2026-05-20T23:34:55.000Z",
             "name": "https://www.caf-fr-remboursement.info",

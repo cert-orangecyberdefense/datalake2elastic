@@ -109,6 +109,18 @@ processors:
           indicator._computed = indicator._computed ?: [:];
           indicator._computed.sources = new ArrayList(sources);
         }
+  - script:
+      description: Set threat.indicator.confidence from datalake_confidence:<value> tag, then strip the tag
+      source: |
+        if (ctx.tags == null) { return; }
+        def prefix = 'datalake_confidence:';
+        for (t in ctx.tags) {
+          if (t != null && t.startsWith(prefix)) {
+            ctx.threat.indicator.confidence = t.substring(prefix.length());
+            break;
+          }
+        }
+        ctx.tags.removeIf(t -> t != null && t.startsWith(prefix));
 on_failure:
   - set:
       field: event.kind

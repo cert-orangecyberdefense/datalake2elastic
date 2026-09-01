@@ -155,6 +155,7 @@ The documentation for ECS fields can be found at:
 | threat.feed.description | Description of the threat feed in a UI friendly format. | keyword |
 | threat.feed.name | The name of the threat feed in UI friendly format. | keyword |
 | threat.feed.reference | Reference information for the threat feed in a UI friendly format. | keyword |
+| threat.indicator.confidence | Identifies the vendor-neutral confidence rating using the None/Low/Medium/High scale defined in Appendix A of the STIX 2.1 framework. Vendor-specific confidence scales may be added as custom fields. | keyword |
 | threat.indicator.email.address | Identifies a threat indicator as an email address (irrespective of direction). | keyword |
 | threat.indicator.file.hash.md5 | MD5 hash. | keyword |
 | threat.indicator.file.hash.sha1 | SHA1 hash. | keyword |

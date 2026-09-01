@@ -55,6 +55,26 @@ streams:
         multi: false
         required: true
         show_user: true
+      - name: confidence
+        type: select
+        title: Indicator confidence
+        description: >-
+          Confidence assigned to every ingested indicator, see also ([STIX 2.1 §10.4](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_1v6elyto0uqg)).
+        default: "Not Specified"
+        multi: false
+        required: true
+        show_user: true
+        options:
+          - value: "Not Specified"
+            text: "Not Specified"
+          - value: "None"
+            text: "None"
+          - value: "Low"
+            text: "Low"
+          - value: "Medium"
+            text: "Medium"
+          - value: "High"
+            text: "High"
       - name: enable_request_tracer
         type: bool
         title: Enable request tracing

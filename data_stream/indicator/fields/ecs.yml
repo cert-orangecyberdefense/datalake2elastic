@@ -18,6 +18,8 @@
   type: date
 - name: "threat.indicator.last_seen"
   type: date
+- name: threat.indicator.confidence
+  external: ecs
 - name: threat.indicator.ip
   external: ecs
 - name: threat.indicator.email.address
