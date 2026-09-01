@@ -1,7 +1,7 @@
 format_version: 3.5.0
 name: ti_orangecyberdefense_datalake
 title: "Orange Cyberdefense Datalake"
-version: 0.0.2 # Please also bump the version of the UA in cel.yml.hbs
+version: 0.0.3 # Please also bump the version of the UA in cel.yml.hbs
 source:
   license: "Apache-2.0"
 description: "Powered by Orange Cyberdefense Datalake platform, this threat intelligence integration provides insights on IP addresses, domains and various other indicators for threat investigations."
