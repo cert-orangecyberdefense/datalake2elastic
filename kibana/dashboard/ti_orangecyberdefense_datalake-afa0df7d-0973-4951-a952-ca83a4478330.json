@@ -2200,6 +2200,7 @@
                         "columns": [
                             "threat.indicator.type",
                             "threat.indicator.name",
+                            "ti_orangecyberdefense_datalake.indicator._computed.sources",
                             "threat.indicator.reference"
                         ],
                         "description": "",
