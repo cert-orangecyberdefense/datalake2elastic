@@ -30,6 +30,12 @@ processors:
       copy_from: ti_orangecyberdefense_datalake.indicator.name
       field: threat.indicator.name
   - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.created
+      field: threat.indicator.first_seen
+  - set:
+      copy_from: ti_orangecyberdefense_datalake.indicator.modified
+      field: threat.indicator.last_seen
+  - set:
       copy_from: ti_orangecyberdefense_datalake.indicator.modified
       field: threat.indicator.modified_at
   - set:
