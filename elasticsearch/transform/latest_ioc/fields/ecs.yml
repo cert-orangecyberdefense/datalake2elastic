@@ -1,5 +1,7 @@
 - name: event.ingested
   external: ecs
+- name: event.kind
+  external: ecs
 - name: event.original
   external: ecs
 - name: threat.feed.description
@@ -12,12 +14,16 @@
   external: ecs
 - name: threat.indicator.name
   external: ecs
+- name: threat.indicator.type
+  external: ecs
+- name: threat.indicator.reference
+  external: ecs
 - name: threat.indicator.modified_at
   external: ecs
-- name: "threat.indicator.first_seen"
-  type: date
-- name: "threat.indicator.last_seen"
-  type: date
+- name: threat.indicator.first_seen
+  external: ecs
+- name: threat.indicator.last_seen
+  external: ecs
 - name: threat.indicator.confidence
   external: ecs
 - name: threat.indicator.ip
@@ -33,6 +39,8 @@
 - name: threat.indicator.file.hash.sha512
   external: ecs
 - name: threat.indicator.url.domain
+  external: ecs
+- name: threat.indicator.url.full
   external: ecs
 - name: threat.indicator.url.original
   external: ecs
