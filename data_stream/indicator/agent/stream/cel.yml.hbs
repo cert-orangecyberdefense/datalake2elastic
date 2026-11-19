@@ -21,7 +21,7 @@ resource.rate_limit.burst: {{rate_limit_burst}}
 {{/if}}
 resource.url: {{datalake_url}}
 resource.headers:
-  User-Agent: "datalake2elastic/0.0.4"
+  User-Agent: "datalake2elastic/0.0.5"
 state:
   datalake_token: {{datalake_token}}
   datalake_query_hashes: {{datalake_query_hashes}}
@@ -80,7 +80,12 @@ program: |
         state.cursor.datalake_query_hashes[int(state.runtime_data.create_index)].as(current_hash,
           request(
             "POST",
-            state.cursor.datalake_url
+            state.cursor.datalake_url,
+            {
+              "query_hash": current_hash,
+              "for_stix_export": true,
+              "indicators_only": true
+            }.encode_json()
           )
           .with(
             {
@@ -88,15 +93,6 @@ program: |
                 "Content-Type": ["application/json"],
                 "Authorization": ["Token " + state.cursor.datalake_token]
               }
-            }
-          )
-          .with(
-            {
-              "Body": {
-                "query_hash": current_hash,
-                "for_stix_export": true,
-                "indicators_only": true
-              }.encode_json()
             }
           )
           .do_request()
